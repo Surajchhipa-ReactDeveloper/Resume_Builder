@@ -1,0 +1,33 @@
+.Button_Container {
+  /* width: 100%; */
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  gap: 2.2rem;
+}
+.Button_Text {
+  color: white;
+  font-size: 2.4rem;
+  line-height: 3.5rem;
+  font-family: "Questrial-Regular";
+}
+.Button_Icon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #404040;
+}
+.RightArrow {
+  width: 2rem;
+  height: 2rem;
+}
+.Button_Icon:hover {
+  background-color: #0b9ad6;
+  transition: all 0.5s ease-in-out;
+}

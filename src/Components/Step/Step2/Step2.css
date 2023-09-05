@@ -1,0 +1,53 @@
+.Job_Details {
+  display: flex;
+  flex-direction: column;
+}
+.Step_Secondary_Input_Container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.Job_Details_Item {
+  width: 100%;
+}
+.Add_Skill_Button {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.Step_Skill_Input_Container {
+  margin: 0rem !important;
+}
+.plusIconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.778);
+  border-radius: 1rem;
+}
+.plusIcon {
+  width: 3.7rem;
+  height: 3.7rem;
+  object-fit: cover;
+  object-position: center;
+}
+.Add_Skill {
+  font-size: 2.5rem;
+  line-height: 3.5rem;
+  font-family: "Questrial-Regular";
+  color: #20202069;
+}
+.Step_Input_Container {
+  display: flex;
+  /* flex-direction: column; */
+}
+.skill_Heading {
+  font-size: 2.5rem;
+  line-height: 3.5rem;
+  font-family: "Questrial-Regular";
+  color: #202020ae;
+}
+
+.Skill_Details_Item {
+  width: 48%;
+}

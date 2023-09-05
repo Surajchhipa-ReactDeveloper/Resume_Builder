@@ -1,0 +1,38 @@
+.Back_Button_Container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.3rem;
+}
+.Button_Icon_Container {
+  cursor: pointer;
+  /* background-color: var(--primary_Back_Button); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .2rem;
+  border-radius: 0.5rem;
+  background-color: #000000;
+}
+.BackArrowIcon {
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+}
+.Button_Icon_Container:hover {
+  background-color: #0b9ad6;
+  transition: all 0.5s ease-in-out;
+}
+       
+.BackButtonLightText{
+  color: rgb(159, 157, 157);
+  font-size: 2.4rem;
+  line-height: 3.5rem;
+  font-family: "Questrial-Regular";
+}
+.BackButtonText {
+  color: black;
+  font-size: 2.4rem;
+  line-height: 3.5rem;
+  font-family: "Questrial-Regular";
+}

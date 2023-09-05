@@ -1,0 +1,106 @@
+.Common_Login_Register_Heading {
+  font-size: 5rem;
+  line-height: 6.7rem;
+  font-family: "Mulish-Bold";
+  color: var(--primary-blue);
+  /* color: #1492e6; */
+}
+.Common_Login_Register_Text {
+  font-size: 2rem;
+  line-height: 3rem;
+  font-family: "Mulish-Medium";
+  color: var(--black);
+  /* color: #202020d5; */
+}
+
+.Login_Register_Top_container_Heading_Title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 60%;
+  height: 14.2rem;
+}
+.Label {
+  font-size: 2rem;
+  line-height: 2.7rem;
+  font-family: "Mulish-Regular";
+  color: var(--black);
+  /* color: #202020; */
+  /* padding-bottom: 1.5rem; */
+}
+/* .LabelMargin{
+  margin-bottom: 1.5rem;
+} */
+.SpanPrimary {
+  font-size: 2rem;
+  line-height: 2.7rem;
+  font-family: "Mulish-Bold";
+  color: #1492e6;
+  margin-left: 0.9rem;
+}
+/* ******** Common Css for Login Page Abd register Page *****/
+
+.Login_And_Register_Page_container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 2px solid; */
+}
+.Home_Page_Left_Container {
+  width: 50%;
+  padding: 0rem 2rem;
+}
+.Login_And_Register_Page_Right_container {
+  background-color: #f5f5f5;
+  padding: 4rem 10rem;
+  width: 50%;
+  height: 100%;
+}
+.Login_And_Register_Page_Main_container {
+  display: flex;
+  gap: 5rem;
+  height: 80vh;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+.Input_Login_Register_Data {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  width: 100%;
+}
+.Input_Div {
+  width: 100%;
+}
+
+/* ************** LOGIN AND REGISTER MEDIA ************* */
+
+@media only screen and (max-width: 768px) {
+  .Home_Page_Left_Container {
+    display: none;
+  }
+  .Login_And_Register_Page_Right_container {
+    width: 100%;
+  }
+  .Login_And_Register_Page_Right_container {
+    padding: 4rem 6rem;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .Login_Register_Top_container_Heading_Title {
+    max-width: 80%;
+  }
+  .Login_And_Register_Page_Right_container {
+    padding: 4rem 4rem;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .Login_Register_Top_container_Heading_Title {
+    max-width: 90%;
+  }
+}

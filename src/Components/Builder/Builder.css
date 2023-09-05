@@ -1,0 +1,87 @@
+.Builder_Container {
+  display: flex;
+  height: 100svh;
+  width: 100%;
+}
+.Builder_Left_Container {
+  width: 50%;
+  padding: 2rem 10rem;
+}
+.BuilderMainLogo {
+  width: 16.7rem;
+  object-fit: cover;
+}
+.Builder_Right_Container {
+  width: 50%;
+}
+.Builder_Mid_Container {
+  height: 58vh;
+  overflow: auto;
+  margin-top: 2.5rem;
+  padding-right: 1rem;
+}
+.Builder_Step_Heading_Container,
+.Builder_Step_Heading {
+  font-size: 2.7rem;
+  margin-top: 3rem;
+  color: black;
+  font-family: "Poppins-Medium";
+}
+.Builder_Step_Heading,
+.Builder_Step_Heading_Container {
+  color: black;
+  border-bottom: 3.5px solid #0b9ad6;
+  font-size: 3rem;
+  line-height: 3rem;
+  font-family: "Poppins-Medium";
+}
+.Builder_Step_Heading_Container {
+  border-bottom: none;
+}
+.Builder_Bottom_Container {
+  margin-top: 5rem;
+  display: flex;
+  /* height: 5vh; */
+}
+.Builder_Bottom_Container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.Builder_Right_Container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #202020;
+  padding: 8rem 10rem;
+  flex-direction: column;
+}
+.Builder_Img_Counter {
+  font-size: 3rem;
+  line-height: 1.5rem;
+  color: white;
+  margin-bottom: 5rem;
+}
+.StepImg {
+  width: 100%;
+  height: 90%;
+  object-fit: contain;
+}
+::-webkit-scrollbar {
+  scrollbar-width: thin;
+  width: 8px;
+}
+/* ::webkit-w */
+::-webkit-scrollbar-thumb {
+  background-color: #000000ba;
+  border-radius: 10px;
+}
+@media only screen and (max-width: 900px) {
+  .Builder_Right_Container {
+    display: none;
+  }
+
+  .Builder_Left_Container {
+    width: 100%;
+  }
+}
