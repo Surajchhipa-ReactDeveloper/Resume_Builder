@@ -83,20 +83,21 @@
 
   .Builder_Left_Container {
     width: 100%;
+    padding: 7rem 9rem;
   }
 }
 @media only screen and (max-width: 700px) {
-  .Builder_Right_Container {
+  .Builder_Left_Container {
     padding: 7rem 7rem;
   }
 }
 @media only screen and (max-width: 550px) {
-  .Builder_Right_Container {
+  .Builder_Left_Container {
     padding: 7rem 4.5rem;
   }
 }
 @media only screen and (max-width: 450px) {
-  .Builder_Right_Container {
+  .Builder_Left_Container {
     padding: 7rem 3rem;
   }
 }
