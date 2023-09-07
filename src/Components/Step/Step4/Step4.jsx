@@ -133,8 +133,8 @@ const Step4 = () => {
 
       {/* ************* */}
 
-      <div className="Step_Input_Container">
-        <div className="Contact_Details_Item">
+      <div className="Step_Input_Container Common_Step_Input_Container">
+        <div className="Contact_Details_Item Common_Contact_Details_Item">
           <Input
             marginTop={true}
             // error={title}
@@ -147,7 +147,7 @@ const Step4 = () => {
               setStartYear(e.target.value);
             }}
             endIcon={
-              errorStartYear == ""
+              errorStartYear === ""
                 ? hide
                   ? Icon.UpArrow
                   : Icon.DownArrow
@@ -156,7 +156,7 @@ const Step4 = () => {
             endOnClick={endOnClick}
           />
         </div>
-        <div className="Contact_Details_Item">
+        <div className="Contact_Details_Item Common_Contact_Details_Item">
           <Input
             marginTop={true}
             // error={title}
@@ -169,7 +169,7 @@ const Step4 = () => {
               setEndYear(e.target.value);
             }}
             endIcon={
-              errorEndYear == ""
+              errorEndYear === ""
                 ? hide2
                   ? Icon.UpArrow
                   : Icon.DownArrow

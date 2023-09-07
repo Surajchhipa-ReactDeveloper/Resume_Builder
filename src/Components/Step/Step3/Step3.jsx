@@ -116,8 +116,8 @@ const Step3 = () => {
 
       {/* ************* */}
 
-      <div className="Step_Input_Container">
-        <div className="Contact_Details_Item">
+      <div className="Step_Input_Container Common_Step_Input_Container">
+        <div className="Contact_Details_Item Common_Contact_Details_Item">
           <Input
             marginTop={true}
             // error={title}
@@ -139,7 +139,7 @@ const Step3 = () => {
             endOnClick={endOnClick}
           />
         </div>
-        <div className="Contact_Details_Item">
+        <div className="Contact_Details_Item Common_Contact_Details_Item">
           <Input
             marginTop={true}
             // error={title}
@@ -177,7 +177,7 @@ const Step3 = () => {
             </h2>
             <div className="Step_Secondary_Input_Container">
               {educationComponents.length > 0 ? (
-                <div className="Step_Skill_Input_Container Step_Input_Container">
+                <div className="Step_Skill_Input_Container Step_Input_Container Common_Step_Input_Container">
                   <div className="Skill_Details_Item">
                     {educationComponents}
                   </div>
@@ -199,8 +199,8 @@ const Step3 = () => {
             <h2 className="Contact_Details_heading Common_Step_Container_Input_Heading">
               6. Follow Links
             </h2>
-            <div className="Step_Input_Container">
-              <div className="Contact_Details_Item">
+            <div className="Step_Input_Container Common_Step_Input_Container">
+              <div className="Contact_Details_Item Common_Contact_Details_Item">
                 <Input
                   marginTop={true}
                   error={portfolioError}
@@ -215,7 +215,7 @@ const Step3 = () => {
                   endIcon={portfolioError !== "" ? Icon.ErrorInput_Logo : ""}
                 />
               </div>
-              <div className="Contact_Details_Item">
+              <div className="Contact_Details_Item Common_Contact_Details_Item">
                 <Input
                   marginTop={true}
                   error={instagramError}
@@ -231,8 +231,8 @@ const Step3 = () => {
                 />
               </div>
             </div>
-            <div className="Step_Input_Container">
-              <div className="Contact_Details_Item">
+            <div className="Step_Input_Container Common_Step_Input_Container">
+              <div className="Contact_Details_Item Common_Contact_Details_Item">
                 <Input
                   marginTop={false}
                   error={linkedInError}
@@ -247,7 +247,7 @@ const Step3 = () => {
                   endIcon={linkedInError !== "" ? Icon.ErrorInput_Logo : ""}
                 />
               </div>
-              <div className="Contact_Details_Item">
+              <div className="Contact_Details_Item Common_Contact_Details_Item">
                 <Input
                   marginTop={false}
                   error={behanceError}
@@ -263,8 +263,8 @@ const Step3 = () => {
                 />
               </div>
             </div>
-            <div className="Step_Input_Container">
-              <div className="Contact_Details_Item">
+            <div className="Step_Input_Container Common_Step_Input_Container">
+              <div className="Contact_Details_Item Common_Contact_Details_Item">
                 <Input
                   marginTop={false}
                   LabelText={"Portfolio"}

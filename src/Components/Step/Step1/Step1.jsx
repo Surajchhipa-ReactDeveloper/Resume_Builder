@@ -90,12 +90,12 @@ const Step1 = () => {
     <>
       <div className="Step1_Container">
         <div className="Step1_Left_Container">
-          <div className="Basis_Details">
+          <div className="Basis_Details common_Details_For_All">
             <h2 className="Contact_Details_heading Common_Step_Container_Input_Heading">
               Basis Details
             </h2>
-            <div className="Step_Input_Container">
-              <div className="Basis_Details_Item">
+            <div className="Step_Input_Container Common_Step_Input_Container Common_Step_Input_Container Common_Step_Input_Container">
+              <div className="Basis_Details_Item Common_Basis_Details_Item">
                 <Input
                   marginTop={false}
                   error={firstNameError}
@@ -111,7 +111,7 @@ const Step1 = () => {
                   endIcon={firstNameError !== "" ? Icon.ErrorInput_Logo : ""}
                 />
               </div>
-              <div className="Basis_Details_Item">
+              <div className="Basis_Details_Item Common_Basis_Details_Item">
                 <Input
                   marginTop={true}
                   error={LastNameError}
@@ -133,8 +133,8 @@ const Step1 = () => {
             <h2 className="Contact_Details_heading Common_Step_Container_Input_Heading">
               Contact Details
             </h2>
-            <div className="Step_Input_Container">
-              <div className="Contact_Details_Item">
+            <div className="Step_Input_Container Common_Step_Input_Container">
+              <div className="Contact_Details_Item Common_Contact_Details_Item">
                 <Input
                   marginTop={true}
                   error={phoneError}
@@ -150,7 +150,7 @@ const Step1 = () => {
                   endIcon={phoneError !== "" ? Icon.ErrorInput_Logo : ""}
                 />
               </div>
-              <div className="Contact_Details_Item">
+              <div className="Contact_Details_Item Common_Contact_Details_Item">
                 <Input
                   marginTop={true}
                   error={emailError}
@@ -167,8 +167,8 @@ const Step1 = () => {
                 />
               </div>
             </div>
-            <div className="Step_Input_Container">
-              <div className="Contact_Details_Item">
+            <div className="Step_Input_Container Common_Step_Input_Container">
+              <div className="Contact_Details_Item Common_Contact_Details_Item">
                 <Input
                   marginTop={false}
                   error={cityError}
@@ -184,7 +184,7 @@ const Step1 = () => {
                   endIcon={cityError !== "" ? Icon.ErrorInput_Logo : ""}
                 />
               </div>
-              <div className="Contact_Details_Item">
+              <div className="Contact_Details_Item Common_Contact_Details_Item">
                 <Input
                   marginTop={false}
                   error={stateError}
@@ -201,8 +201,8 @@ const Step1 = () => {
                 />
               </div>
             </div>
-            <div className="Step_Input_Container">
-              <div className="Contact_Details_Item">
+            <div className="Step_Input_Container Common_Step_Input_Container">
+              <div className="Contact_Details_Item Common_Contact_Details_Item">
                 <Input
                   marginTop={false}
                   error={country}

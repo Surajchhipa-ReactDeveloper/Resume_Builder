@@ -5,7 +5,6 @@ export const Icon = {
   NextArrow: require("../Assets/icon/NextArrow.svg").default,
   Rocket: require("../Assets/icon/rocket.svg").default,
   RightArrow: require("../Assets/icon/RightArrow.svg").default,
-  RightArrow: require("../Assets/icon/RightArrow.svg").default,
   plusIcon: require("../Assets/icon/plusIcon.svg").default,
   DownArrow: require("../Assets/icon/DownArrow.svg").default,
   UpArrow: require("../Assets/icon/UpArrow.svg").default,

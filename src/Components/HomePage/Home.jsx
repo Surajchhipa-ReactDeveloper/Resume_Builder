@@ -3,6 +3,7 @@ import "./Home.css";
 import { Icon } from "../../Constant/IconPath";
 import NextButton from "../Common/NextButton/NextButton";
 import { Images } from "../../Constant/ImgPath";
+import { NavLink } from "react-router-dom";
 const Home = () => {
   return (
     <>
@@ -25,7 +26,9 @@ const Home = () => {
               impression as quickly as possible.
             </div>
             <div className="Home_Page_Button">
-              <NextButton />
+              <NavLink to="/builder" className="nav-link">
+                <NextButton ButtonText={"Build Resume Now"} />
+              </NavLink>
             </div>
           </div>
         </div>

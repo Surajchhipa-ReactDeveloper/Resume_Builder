@@ -4,13 +4,4 @@
   flex-direction: column;
   gap: 1rem;
 }
-@media only screen and (max-width: 1200px) {
-  .Step_Input_Container {
-    display: flex;
-    flex-direction: column;
-  }
-  .Basis_Details_Item,
-  .Contact_Details_Item {
-    width: 100%;
-  }
-}
+

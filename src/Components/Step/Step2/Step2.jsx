@@ -54,7 +54,7 @@ const Step2 = () => {
             <h2 className="Contact_Details_heading Common_Step_Container_Input_Heading">
               3. Job Details
             </h2>
-            <div className="Step_Secondary_Input_Container">
+            <div className="Step_Secondary_Input_Container Common_Step_Secondary_Input_Container">
               <div className="Job_Details_Item">
                 <Input
                   marginTop={false}
@@ -93,10 +93,9 @@ const Step2 = () => {
             <h2 className="Contact_Details_heading Common_Step_Container_Input_Heading">
               4. Skills / Expertise
             </h2>
-            {/* <div className="skill_Heading">Skill</div> */}
-            <div className="Step_Input_Container">
+            <div className="Step_Input_Container Common_Step_Input_Container">
               {input2Components.length > 0 ? (
-                <div className="Step_Skill_Input_Container Step_Input_Container">
+                <div className="Step_Skill_Input_Container Common_Step_Input_Container ">
                   <div className="Skill_Details_Item">{input2Components}</div>
                   <div className="Skill_Details_Item">{input2Components}</div>
                 </div>

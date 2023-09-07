@@ -7,7 +7,6 @@ import { Images } from "../../Constant/ImgPath";
 import Step1 from "../Step/Step1/Step1";
 import Step2 from "../Step/Step2/Step2";
 import Step3 from "../Step/Step3/Step3";
-import Home from "../HomePage/Home";
 import Step4 from "../Step/Step4/Step4";
 
 const Builder = () => {
@@ -27,8 +26,10 @@ const Builder = () => {
   };
 
   const handleBackClick = () => {
-    if (currentStep > 0) {
+    if (currentStep > 1) {
       setCurrentStep(currentStep - 1);
+    } else if (currentStep === 1) {
+      window.location.href = "/";
     }
   };
 

@@ -13,22 +13,22 @@
   flex-direction: column;
 }
 
-.Step_Input_Container,
+/* .Step_Input_Container, */
 .Basis_Details {
   display: flex;
   flex-direction: column;
   /* align-items: flex-start; */
   /* justify-content: space-between; */
 }
-.Contact_Details_heading {
+/* .Contact_Details_heading {
   margin-top: 2.5rem;
   font-size: 2.5rem;
   line-height: 2.5rem;
   font-family: "Poppins-Regular";
   color:  #202020d3;
   margin-bottom:1rem;
-}
-.Step_Input_Container,
+} */
+/* .Step_Input_Container,
 .Step_Input_Container {
   margin: 1.5rem 0rem;
   width: 100%;
@@ -36,10 +36,10 @@
   align-items: flex-start;
   flex-direction: row;
   justify-content: space-between;
-}
-.Basis_Details_Item,
+} */
+/* .Basis_Details_Item,
 .Contact_Details_Item {
   width: 47%;
-}
+} */
 
 /*  */

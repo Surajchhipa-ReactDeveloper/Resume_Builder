@@ -1,18 +1,16 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Components/HomePage/Home";
-import Step1 from "./Components/Step/Step1/Step1";
 import Builder from "./Components/Builder/Builder";
-import Step2 from "./Components/Step/Step2/Step2";
 
 const App = () => {
   return (
-    <>
-      {/* <Home /> */}
-      {/* <Step2 /> */}
-      <Builder />
-      
-     
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/builder" element={<Builder />} />
+      </Routes>
+    </Router>
   );
 };
 
