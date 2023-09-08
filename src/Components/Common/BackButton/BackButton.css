@@ -3,21 +3,22 @@
   align-items: center;
   justify-content: center;
   gap: 1.3rem;
+  cursor: pointer;
 }
 .Button_Icon_Container {
   cursor: pointer;
-  /* background-color: var(--primary_Back_Button); */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: .2rem;
+  padding: 1.2rem; 
   border-radius: 0.5rem;
   background-color: #000000;
 }
 .BackArrowIcon {
-  width: 4rem;
-  height: 4rem;
-  object-fit: cover;
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+  object-position: center;
 }
 .Button_Icon_Container:hover {
   background-color: #0b9ad6;

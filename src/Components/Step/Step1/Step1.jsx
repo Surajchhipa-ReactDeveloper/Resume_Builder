@@ -92,7 +92,7 @@ const Step1 = () => {
         <div className="Step1_Left_Container">
           <div className="Basis_Details common_Details_For_All">
             <h2 className="Contact_Details_heading Common_Step_Container_Input_Heading">
-              Basis Details
+             1. Basis Details
             </h2>
             <div className="Step_Input_Container Common_Step_Input_Container Common_Step_Input_Container Common_Step_Input_Container">
               <div className="Basis_Details_Item Common_Basis_Details_Item">
@@ -102,7 +102,7 @@ const Step1 = () => {
                   LabelText={"First Name"}
                   Type={"Name"}
                   Name={"Name"}
-                  placeholderText={"Enter your First name"}
+                  placeholderText={"Enter your first name"}
                   value={firstName}
                   onChange={(e) => {
                     setFirstName(e.target.value);
@@ -118,7 +118,7 @@ const Step1 = () => {
                   LabelText={"Last Name"}
                   Type={"email"}
                   Name={"Email"}
-                  placeholderText={"Enter your Last name"}
+                  placeholderText={"Enter your last name"}
                   value={lastName}
                   onChange={(e) => {
                     setLastName(e.target.value);
@@ -131,7 +131,7 @@ const Step1 = () => {
           </div>
           <div className="Contact_Details">
             <h2 className="Contact_Details_heading Common_Step_Container_Input_Heading">
-              Contact Details
+              2. Contact Details
             </h2>
             <div className="Step_Input_Container Common_Step_Input_Container">
               <div className="Contact_Details_Item Common_Contact_Details_Item">
@@ -206,9 +206,9 @@ const Step1 = () => {
                 <Input
                   marginTop={false}
                   error={country}
-                  LabelText={"Email"}
-                  Type={"email"}
-                  Name={"Email"}
+                  LabelText={"Country"}
+                  Type={"text"}
+                  Name={"Country"}
                   placeholderText={"Enter your country"}
                   // value={email}
                   onChange={(e) => {

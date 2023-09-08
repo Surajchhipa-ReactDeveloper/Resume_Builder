@@ -17,7 +17,6 @@ const Step3 = () => {
   const [behance, setBehance] = useState("");
   const [portfolio, setPortfolio] = useState("");
 
-
   // ************* NORMAL INPUT STATE  END**************
 
   // ************* ERROR STATE START**************
@@ -39,20 +38,19 @@ const Step3 = () => {
   const [hide2, setHide2] = useState(false);
   const [education, setEducation] = useState(0);
   const [educations, setEducations] = useState([1]);
-  
+
   // ******************* NORMAL STATE END ************
-  
+
   // *************************
   const currentYear = new Date().getFullYear();
   const [selectedYear, setSelectedYear] = useState(currentYear);
-  const StartYear = currentYear - 100;
-  const EndYear = currentYear + 10;
+  // const StartYear = selectedYear - 100;
 
+  const [hello, setHello] = useState(currentYear);
   const years = Array.from(
-    { length: StartYear + EndYear + 1 },
+    { length: hello - 100 },
     (_, index) => selectedYear + index
   );
-
   // *************************
 
   const endOnClick = (event) => {
@@ -61,13 +59,14 @@ const Step3 = () => {
     const newYear = parseInt(inputValue, 10) || 0;
     setSelectedYear(newYear);
     console.log(selectedYear);
+    console.log(currentYear);
+    console.log(years);
+    console.log(hello);
     console.log("Selected Year (Start Year):", newYear);
   };
 
   const endOnClick2 = () => {
     setHide2(!hide2);
-    console.log("Selected Start Year:", selectedYear);
-    console.log("Selected End Year:", endYear);
   };
 
   const MoreAddEducation = () => {
@@ -80,7 +79,7 @@ const Step3 = () => {
     <div key={index} className="Step_Secondary_Input_Container">
       {/* <h6>Degree {educations}</h6> */}
 
-      <div className="Job_Details_Item">
+      <div className=" Common_SIngle_Class">
         <Input
           marginTop={false}
           error={titleError}
@@ -96,7 +95,7 @@ const Step3 = () => {
           endIcon={titleError !== "" ? Icon.ErrorInput_Logo : ""}
         />
       </div>
-      <div className="Job_Details_Item">
+      <div className=" Common_SIngle_Class">
         <Input
           marginTop={false}
           error={titleError}
@@ -136,6 +135,7 @@ const Step3 = () => {
                   : Icon.DownArrow
                 : Icon.ErrorInput_Logo
             }
+            onClick
             endOnClick={endOnClick}
           />
         </div>
@@ -159,8 +159,8 @@ const Step3 = () => {
                 : Icon.ErrorInput_Logo
             }
             endOnClick={endOnClick2}
-            min={1900}
-            max={new Date().getFullYear() + 10}
+            // min={1900}
+            // max={new Date().getFullYear() + 10}
           />
         </div>
       </div>
@@ -178,7 +178,7 @@ const Step3 = () => {
             <div className="Step_Secondary_Input_Container">
               {educationComponents.length > 0 ? (
                 <div className="Step_Skill_Input_Container Step_Input_Container Common_Step_Input_Container">
-                  <div className="Skill_Details_Item">
+                  <div className="Skill_Details_Item ">
                     {educationComponents}
                   </div>
                 </div>

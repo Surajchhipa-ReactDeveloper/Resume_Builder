@@ -4,9 +4,11 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 1rem 1.5rem;
+  padding: 1.2rem 1.8rem;
   border-radius: 1rem;
   gap: 2.2rem;
+  cursor: pointer;
+
 }
 .Button_Text {
   color: white;
@@ -19,13 +21,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: 1.1rem;
   border-radius: 0.5rem;
   background-color: #404040;
 }
 .RightArrow {
   width: 2rem;
   height: 2rem;
+  object-fit: contain;
+  object-position: center;
 }
 .Button_Icon:hover {
   background-color: #0b9ad6;

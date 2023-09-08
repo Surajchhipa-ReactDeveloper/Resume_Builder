@@ -15,15 +15,17 @@
   width: 100%;
 }
 
-
-.Password_Img_Visible{
+.User_Input_Tag_Common {
+  margin-bottom: 2rem;
+}
+.Password_Img_Visible {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .Input_Img_Get_Box {
   display: flex;
-  border: 2px solid #8b575718;
+  border: 2px solid #1818182a;
   border-radius: 1rem;
   padding: 0.5rem 3rem;
   height: 7rem;
@@ -32,6 +34,15 @@
 .Input_Img_Get_Box2 {
   max-height: 17rem !important;
 }
+.Input_Img_Get_Box_focused {
+  border: 2px solid #000000;
+  transition: all 1s ease-in-out;
+}
+.Input_Img_Get_Box_focused:hover {
+  border: 2px solid #1818187e;
+  transition: all 1s ease-out;
+}
+
 .InputIcon {
   width: 4rem;
 }
@@ -57,7 +68,10 @@
   transition: all 1s;
 }
 ::placeholder {
-  color: #20202069;
+  color: #20202057;
+  font-size: 2.5rem;
+  line-height: 3.5rem;
+  font-family: "Questrial-Regular";
 }
 .Text_Area_Container {
   height: fit-content;

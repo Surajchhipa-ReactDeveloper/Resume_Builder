@@ -64,7 +64,7 @@ const Builder = () => {
                     : "" || currentStep === 3
                     ? "Profile and Skills"
                     : "" || currentStep === 4
-                    ? "Education Details and Follow Links"
+                    ? "Education and Follow Links"
                     : ""
                 }
               />

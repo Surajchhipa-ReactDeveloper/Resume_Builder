@@ -11,7 +11,7 @@
   flex-direction: column;
 }
 .Common_Step_Input_Container {
-  margin: 1.5rem 0rem;
+  /* margin: 1.5rem 0rem; */
   width: 100%;
   display: flex;
   align-items: flex-start;
@@ -19,6 +19,7 @@
   justify-content: space-between;
 }
 .Common_Basis_Details_Item,
+.Common_Skill_Details_Item,
 .Common_Contact_Details_Item {
   width: 47%;
 }
@@ -26,6 +27,13 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+.Second_Prime_Class {
+  width: 47% !important;
+}
+.plusIconContainer:hover {
+  background-color: #0b9ad6;
+  transition: all .8s ease-in-out;
 }
 @media only screen and (max-width: 1200px) {
   .Common_Step_Input_Container {
@@ -35,5 +43,34 @@
   .Common_Basis_Details_Item,
   .Common_Contact_Details_Item {
     width: 100%;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .Common_Step_Input_Container {
+    display: flex;
+    flex-direction: row;
+  }
+  .Common_Basis_Details_Item,
+  .Common_Skill_Details_Item,
+  .Common_Contact_Details_Item {
+    width: 47%;
+  }
+  .Common_SIngle_Class {
+    width: 100% !important;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .Common_Step_Input_Container {
+    display: flex;
+    flex-direction: column;
+  }
+  .Common_Basis_Details_Item,
+  .Common_Skill_Details_Item,
+  .Common_Contact_Details_Item {
+    width: 100%;
+  }
+  .Common_SIngle_Class,
+  .Second_Prime_Class {
+    width: 100% !important;
   }
 }

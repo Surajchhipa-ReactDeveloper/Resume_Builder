@@ -14,11 +14,13 @@ const Step2 = () => {
   const [skillError, setSkillError] = useState();
   const [titleError, setTitleError] = useState();
   const [descriptionError, setDescriptionError] = useState();
+  
   const MoreAddSkill = () => {
     if (input2Count < 3) {
       setInput2Count(input2Count + 1);
     }
   };
+
   const placeholders = [
     "Enter Skill No. 1",
     "Enter Skill No. 2",
@@ -96,8 +98,12 @@ const Step2 = () => {
             <div className="Step_Input_Container Common_Step_Input_Container">
               {input2Components.length > 0 ? (
                 <div className="Step_Skill_Input_Container Common_Step_Input_Container ">
-                  <div className="Skill_Details_Item">{input2Components}</div>
-                  <div className="Skill_Details_Item">{input2Components}</div>
+                  <div className="Skill_Details_Item Second_Prime_Class">
+                    {input2Components}
+                  </div>
+                  <div className="Skill_Details_Item Second_Prime_Class">
+                    {input2Components}
+                  </div>
                 </div>
               ) : (
                 <p>No skills added yet.</p>
