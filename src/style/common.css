@@ -33,7 +33,7 @@
 }
 .plusIconContainer:hover {
   background-color: #0b9ad6;
-  transition: all .8s ease-in-out;
+  transition: all 0.8s ease-in-out;
 }
 @media only screen and (max-width: 1200px) {
   .Common_Step_Input_Container {
@@ -44,6 +44,9 @@
   .Common_Contact_Details_Item {
     width: 100%;
   }
+  .Second_Prime_Class {
+  width: 100% !important;
+}
 }
 @media only screen and (max-width: 900px) {
   .Common_Step_Input_Container {
@@ -58,6 +61,9 @@
   .Common_SIngle_Class {
     width: 100% !important;
   }
+  .Second_Prime_Class {
+    width: 47% !important;
+  }
 }
 @media only screen and (max-width: 450px) {
   .Common_Step_Input_Container {
@@ -69,7 +75,9 @@
   .Common_Contact_Details_Item {
     width: 100%;
   }
-  .Common_SIngle_Class,
+  .Common_SIngle_Class {
+    width: 100% !important;
+  }
   .Second_Prime_Class {
     width: 100% !important;
   }

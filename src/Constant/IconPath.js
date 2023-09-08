@@ -8,4 +8,5 @@ export const Icon = {
   plusIcon: require("../Assets/icon/plusIcon.svg").default,
   DownArrow: require("../Assets/icon/DownArrow.svg").default,
   UpArrow: require("../Assets/icon/UpArrow.svg").default,
+  ErrorInput_Logo: require("../Assets/icon/ErrorInput.svg").default,
 };

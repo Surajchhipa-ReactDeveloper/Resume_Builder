@@ -6,23 +6,23 @@ import { Icon } from "../../../Constant/IconPath";
 const Step1 = () => {
   // ***************** NORMAL STATE ***********
 
-  const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
-  const [phone, setPhone] = useState();
-  const [email, setEmail] = useState();
-  const [city, setCity] = useState();
-  const [state, setState] = useState();
-  const [country, setCountry] = useState();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [country, setCountry] = useState("");
 
   // ***************** ERROR STATE *************
 
-  const [firstNameError, setFirstNameError] = useState();
-  const [LastNameError, setLastNameError] = useState();
-  const [phoneError, setPhoneError] = useState();
-  const [emailError, setEmailError] = useState();
-  const [cityError, setCityError] = useState();
-  const [stateError, setStateError] = useState();
-  const [countryError, setCountryError] = useState();
+  const [firstNameError, setFirstNameError] = useState("");
+  const [LastNameError, setLastNameError] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [cityError, setCityError] = useState("");
+  const [stateError, setStateError] = useState("");
+  const [countryError, setCountryError] = useState("");
 
   const inputContentHandler = () => {
     try {
@@ -38,14 +38,14 @@ const Step1 = () => {
       }
 
       if (lastName === "") {
-        setLastNameError("Please enter your email");
+        setLastNameError("Please enter your lastName ");
         hasError = true;
       } else {
         setLastNameError("");
       }
 
       if (phone === "") {
-        setEmailError("Please enter your email");
+        setPhoneError("Please enter your phone");
         hasError = true;
       } else {
         setPhoneError("");
@@ -60,29 +60,26 @@ const Step1 = () => {
       }
 
       if (city === "") {
-        setCityError("Please enter your email");
+        setCityError("Please enter your city");
         hasError = true;
       } else {
-        setCityError("Please enter an Valid email");
-        hasError = true;
+        setCityError("");
       }
       if (state === "") {
-        setStateError("Please enter your email");
+        setStateError("Please enter your state");
         hasError = true;
       } else {
-        setStateError("Please enter an Valid email");
+        setStateError();
         hasError = true;
       }
       if (country === "") {
-        setCountryError("Please enter your email");
+        setCountryError("Please enter your country");
         hasError = true;
       } else {
         setCountryError("");
       }
     } catch (error) {
-      console.log("Find Error Chack Code");
-    } finally {
-      inputContentHandler();
+      console.log(error, "Find Error Chack Code");
     }
   };
 
@@ -92,7 +89,7 @@ const Step1 = () => {
         <div className="Step1_Left_Container">
           <div className="Basis_Details common_Details_For_All">
             <h2 className="Contact_Details_heading Common_Step_Container_Input_Heading">
-             1. Basis Details
+              1. Basis Details
             </h2>
             <div className="Step_Input_Container Common_Step_Input_Container Common_Step_Input_Container Common_Step_Input_Container">
               <div className="Basis_Details_Item Common_Basis_Details_Item">
@@ -146,7 +143,7 @@ const Step1 = () => {
                   onChange={(e) => {
                     setPhone(e.target.value);
                   }}
-                  startIcon={phone !== "" ? Icon.IndianFlag : ""}
+                  startIcon={phone === "" ? Icon.IndianFlag : ""}
                   endIcon={phoneError !== "" ? Icon.ErrorInput_Logo : ""}
                 />
               </div>
@@ -162,7 +159,6 @@ const Step1 = () => {
                   onChange={(e) => {
                     setEmail(e.target.value);
                   }}
-                  startIcon={email !== "" ? "" : ""}
                   endIcon={emailError !== "" ? Icon.ErrorInput_Logo : ""}
                 />
               </div>
@@ -180,7 +176,6 @@ const Step1 = () => {
                   onChange={(e) => {
                     setCity(e.target.value);
                   }}
-                  startIcon={city !== "" ? "" : Icon.MainLogo}
                   endIcon={cityError !== "" ? Icon.ErrorInput_Logo : ""}
                 />
               </div>
@@ -196,7 +191,6 @@ const Step1 = () => {
                   onChange={(e) => {
                     setState(e.target.value);
                   }}
-                  startIcon={state !== "" ? "" : Icon.MainLogo}
                   endIcon={stateError !== "" ? Icon.ErrorInput_Logo : ""}
                 />
               </div>
@@ -214,10 +208,10 @@ const Step1 = () => {
                   onChange={(e) => {
                     setCountry(e.target.value);
                   }}
-                  startIcon={country !== "" ? "" : Icon.MainLogo}
                   endIcon={countryError !== "" ? Icon.ErrorInput_Logo : ""}
                 />
               </div>
+              <button onClick={inputContentHandler}>Submit </button>
             </div>
           </div>
         </div>
