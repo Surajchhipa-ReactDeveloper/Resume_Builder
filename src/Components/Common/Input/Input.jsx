@@ -36,7 +36,7 @@ const Input = ({
           ${marginTop !== false ? "" : "FixedMArgin "}`}
         >
           {startIcon && (
-            <img  
+            <img
               src={startIcon}
               alt=""
               className="InputIcon"

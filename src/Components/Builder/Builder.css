@@ -1,7 +1,9 @@
 .Builder_Container {
   display: flex;
-  height: 100svh;
   width: 100%;
+  height: 100svh;
+  align-items: center;
+  border: 2px solid green;
 }
 .Builder_Left_Container {
   width: 50%;
@@ -99,6 +101,5 @@
 @media only screen and (max-width: 450px) {
   .Builder_Left_Container {
     padding: 7rem 3rem;
-    
   }
 }

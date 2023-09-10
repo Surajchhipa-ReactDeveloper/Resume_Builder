@@ -8,13 +8,13 @@ import { Icon } from "../../../Constant/IconPath";
 
 const Step2 = () => {
   const [input2Count, setInput2Count] = useState(1); // Initial count
-  const [title, setTitle] = useState();
-  const [skill, setSkill] = useState();
-  const [description, setDescription] = useState();
+  const [title, setTitle] = useState("");
+  const [skill, setSkill] = useState("");
+  const [description, setDescription] = useState("");
   const [skillError, setSkillError] = useState();
-  const [titleError, setTitleError] = useState();
+  const [titleError, setTitleError] = useState("");
   const [descriptionError, setDescriptionError] = useState();
-  
+
   const MoreAddSkill = () => {
     if (input2Count < 3) {
       setInput2Count(input2Count + 1);
@@ -34,8 +34,6 @@ const Step2 = () => {
       <Input
         placeholderText={placeholders[index]}
         marginTop={false}
-        error={skillError}
-        // LabelText={"Skill"}
         Type={"text"}
         Name={"Skill"}
         value={skill}
@@ -43,7 +41,6 @@ const Step2 = () => {
           setSkill(e.target.value);
         }}
         startIcon={skill !== "" ? "" : ""}
-        endIcon={skillError !== "" ? Icon.ErrorInput_Logo : ""}
       />
     </div>
   ));

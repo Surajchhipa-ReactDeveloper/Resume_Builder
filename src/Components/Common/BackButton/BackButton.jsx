@@ -15,7 +15,8 @@ const BackButton = ({ onClick, ButtonText }) => {
         </div>
         <div className="BackButtonText">
           <span className="BackButtonLightText">Back to </span>
-          {ButtonText}
+          <span className=" BTnBackText">{ButtonText}</span>
+          {BackButton}
         </div>
       </div>
     </>

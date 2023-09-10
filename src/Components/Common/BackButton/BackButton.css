@@ -10,7 +10,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.2rem; 
+  padding: 1.2rem;
   border-radius: 0.5rem;
   background-color: #000000;
 }
@@ -24,16 +24,23 @@
   background-color: #0b9ad6;
   transition: all 0.5s ease-in-out;
 }
-       
-.BackButtonLightText{
+
+.BackButtonLightText {
   color: rgb(159, 157, 157);
   font-size: 2.4rem;
   line-height: 3.5rem;
   font-family: "Questrial-Regular";
 }
-.BackButtonText {
+.BackButtonText,
+.BTnBackText {
   color: black;
   font-size: 2.4rem;
   line-height: 3.5rem;
   font-family: "Questrial-Regular";
+}
+@media only screen and (max-width: 550px) {
+  .BTnBackText {
+    display: none;
+
+  }
 }

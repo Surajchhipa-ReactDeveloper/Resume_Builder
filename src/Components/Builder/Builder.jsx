@@ -13,7 +13,7 @@ const Builder = () => {
   const StepHeading = [
     "Personal Information",
     "Profile and Skills",
-    "Education Details and Follow Links",
+    "Education and Follow Links",
     "Experiences",
   ];
 

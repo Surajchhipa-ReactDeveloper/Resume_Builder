@@ -62,7 +62,7 @@ const TextArea = ({
           </p>
 
           <div className="Password_Img_Visible">
-            {endIcon && (
+            {/* {endIcon && (
               <img
                 src={endIcon}
                 alt=""
@@ -70,7 +70,7 @@ const TextArea = ({
                 onClick={endOnClick}
                 style={{ marginLeft: "1.5rem" }}
               />
-            )}
+            )} */}
           </div>
         </div>
       </div>

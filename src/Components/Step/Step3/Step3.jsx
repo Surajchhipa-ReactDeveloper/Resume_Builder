@@ -8,7 +8,8 @@ import Education from "../../Common/Education/Education";
 const Step3 = () => {
   // ************* NORMAL INPUT STATE START**************
 
-  const [title, setTitle] = useState();
+  const [course, setCourse] = useState("");
+  const [institute, setInstitute] = useState("");
   const [startYear, setStartYear] = useState("");
   const [endYear, setEndYear] = useState("");
   const [facebook, setFacebook] = useState("");
@@ -20,12 +21,13 @@ const Step3 = () => {
   // ************* NORMAL INPUT STATE  END**************
 
   // ************* ERROR STATE START**************
+  const [courseError, setCourseError] = useState("");
+  const [instituteError, setInstituteError] = useState("");
   const [portfolioError, setPortfolioError] = useState("");
   const [behanceError, setBehanceError] = useState("");
   const [linkedInError, setLinkedInError] = useState("");
   const [instagramError, setInstagramError] = useState("");
   const [facebookError, setFacebookError] = useState("");
-  const [titleError, setTitleError] = useState();
   const [errorStartYear, setErrorStartYear] = useState("");
   const [errorEndYear, setErrorEndYear] = useState("");
 
@@ -82,33 +84,31 @@ const Step3 = () => {
       <div className=" Common_SIngle_Class">
         <Input
           marginTop={false}
-          error={titleError}
+          error={courseError}
           LabelText={"Course / Degree Name"}
           Type={"text"}
           Name={"Title"}
           placeholderText={"Like BBA, MBA, BCA, etc."}
-          value={title}
+          value={course}
           onChange={(e) => {
-            setTitle(e.target.value);
+            setCourse(e.target.value);
           }}
-          startIcon={title !== "" ? "" : ""}
-          endIcon={titleError !== "" ? Icon.ErrorInput_Logo : ""}
+          endIcon={courseError !== "" ? Icon.ErrorInput_Logo : ""}
         />
       </div>
       <div className=" Common_SIngle_Class">
         <Input
           marginTop={false}
-          error={titleError}
+          error={instituteError}
           LabelText={"Institute / College Name"}
           Type={"text"}
           Name={"Title"}
           placeholderText={"Like Oxford University, Harvard University, etc."}
-          value={title}
+          value={institute}
           onChange={(e) => {
-            setTitle(e.target.value);
+            setInstitute(e.target.value);
           }}
-          startIcon={title !== "" ? "" : ""}
-          endIcon={titleError !== "" ? Icon.ErrorInput_Logo : ""}
+          endIcon={instituteError !== "" ? Icon.ErrorInput_Logo : ""}
         />
       </div>
       {/* ************* */}
