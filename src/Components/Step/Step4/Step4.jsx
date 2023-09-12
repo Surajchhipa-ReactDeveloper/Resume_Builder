@@ -10,26 +10,26 @@ import TextArea from "../../Common/Input/TextArea";
 const Step4 = () => {
   // ************* NORMAL INPUT STATE START**************
 
-  const [title, setTitle] = useState();
+  const [jobProfile, setJobProfile] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [location, setLocation] = useState("");
+  const [jobDescription, setJobDescription] = useState("");
   const [startYear, setStartYear] = useState("");
   const [endYear, setEndYear] = useState("");
-  const [facebook, setFacebook] = useState("");
-  const [instagram, setInstagram] = useState("");
-  const [linkedIn, setLinkedIn] = useState("");
-  const [behance, setBehance] = useState("");
-  const [portfolio, setPortfolio] = useState("");
 
   // ************* NORMAL INPUT STATE  END**************
 
   // ************* ERROR STATE START**************
-  const [portfolioError, setPortfolioError] = useState("");
-  const [behanceError, setBehanceError] = useState("");
-  const [linkedInError, setLinkedInError] = useState("");
-  const [instagramError, setInstagramError] = useState("");
-  const [facebookError, setFacebookError] = useState("");
-  const [titleError, setTitleError] = useState();
+  const [jobProfileError, setJobProfileError] = useState("");
+  const [companyNameError, setCompanyNameError] = useState("");
+  const [locationError, setLocationError] = useState("");
+  const [jobDescriptionError, setJobDescriptionError] = useState("");
   const [errorStartYear, setErrorStartYear] = useState("");
   const [errorEndYear, setErrorEndYear] = useState("");
+
+  //
+
+  //
 
   // ************* ERROR STATE END**************
 
@@ -84,49 +84,46 @@ const Step4 = () => {
       <div className="Job_Details_Item">
         <Input
           marginTop={false}
-          error={titleError}
+          error={jobProfileError}
           LabelText={"Job Profile "}
           Type={"text"}
           Name={"Title"}
           placeholderText={"Like Designer, HR, Web Developer, etc."}
-          value={title}
+          value={jobProfile}
           onChange={(e) => {
-            setTitle(e.target.value);
+            setJobProfile(e.target.value);
           }}
-          startIcon={title !== "" ? "" : ""}
-          endIcon={titleError !== "" ? Icon.ErrorInput_Logo : ""}
+          endIcon={jobProfileError !== "" ? Icon.ErrorInput_Logo : ""}
         />
       </div>
       <div className="Job_Details_Item">
         <Input
           marginTop={false}
-          error={titleError}
+          error={companyNameError}
           LabelText={"Company Name"}
           Type={"text"}
           Name={"Title"}
           placeholderText={"Like Google, Amazon, TCS, etc."}
-          value={title}
+          value={companyName}
           onChange={(e) => {
-            setTitle(e.target.value);
+            setCompanyName(e.target.value);
           }}
-          startIcon={title !== "" ? "" : ""}
-          endIcon={titleError !== "" ? Icon.ErrorInput_Logo : ""}
+          endIcon={companyNameError !== "" ? Icon.ErrorInput_Logo : ""}
         />
       </div>
       <div className="Job_Details_Item">
         <Input
           marginTop={false}
-          error={titleError}
+          error={locationError}
           LabelText={"Enter location"}
           Type={"text"}
           Name={"Title"}
           placeholderText={"Enter location"}
-          value={title}
+          value={location}
           onChange={(e) => {
-            setTitle(e.target.value);
+            setLocation(e.target.value);
           }}
-          startIcon={title !== "" ? "" : ""}
-          endIcon={titleError !== "" ? Icon.ErrorInput_Logo : ""}
+          endIcon={locationError !== "" ? Icon.ErrorInput_Logo : ""}
         />
       </div>
       {/* ************* */}
@@ -184,19 +181,16 @@ const Step4 = () => {
       <div className="Job_Details_Item">
         <TextArea
           marginTop={false}
-          //   error={descriptionError}
           LabelText={"Description"}
           Type={"text"}
           Name={"Description"}
-          //   value={description}
+          value={jobDescription}
           placeholderText={
             "Enter your short job description about your role in company"
           }
           onChange={(e) => {
-            // setDescription(e.target.value);
+            setJobDescription(e.target.value);
           }}
-          //   startIcon={description !== "" ? "" : ""}
-          //   endIcon={descriptionError !== "" ? Icon.ErrorInput_Logo : ""}
         />
       </div>
     </div>

@@ -39,7 +39,7 @@ const Builder = () => {
         <div className="Builder_Left_Container ">
           <div className="Builder_Top_Container">
             <div className="Builder_Main_Logo">
-              <img src={Icon.MainLogo} alt="" className="BuilderMainLogo" />
+              <img src={Icon.LogoPrimer2} alt="" className="BuilderMainLogo" />
             </div>
           </div>
           <div className="Builder_Step_Heading_Container">
@@ -90,6 +90,7 @@ const Builder = () => {
         <div className="Builder_Right_Container ">
           <h3 className="Builder_Img_Counter">Step {currentStep} Out of 4</h3>
           <img
+            className="StepImg"
             src={
               currentStep === 1
                 ? Images.Step1
@@ -102,7 +103,6 @@ const Builder = () => {
                 : ""
             }
             alt=""
-            className="StepImg"
           />
         </div>
       </div>

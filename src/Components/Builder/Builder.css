@@ -1,17 +1,20 @@
 .Builder_Container {
   display: flex;
   width: 100%;
-  height: 100svh;
+  height: 100dvh;
   align-items: center;
-  border: 2px solid green;
+  /* border: 2px solid green; */
 }
 .Builder_Left_Container {
   width: 50%;
   padding: 2rem 10rem;
 }
+.Builder_Top_Container {
+  margin-bottom: 8rem;
+}
 .BuilderMainLogo {
   width: 16.7rem;
-  object-fit: cover;
+  object-fit: contain;
 }
 .Builder_Right_Container {
   width: 50%;
@@ -20,7 +23,7 @@
   height: 58vh;
   overflow: auto;
   margin-top: 2.5rem;
-  padding-right: 1rem;
+  padding-right: 2rem;
 }
 .Builder_Step_Heading_Container,
 .Builder_Step_Heading {
@@ -57,6 +60,7 @@
   background-color: #202020;
   padding: 8rem 10rem;
   flex-direction: column;
+  height: 100dvh;
 }
 .Builder_Img_Counter {
   font-size: 3rem;
@@ -69,15 +73,14 @@
   height: 90%;
   object-fit: contain;
 }
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   scrollbar-width: thin;
   width: 8px;
 }
-/* ::webkit-w */
 ::-webkit-scrollbar-thumb {
   background-color: #000000ba;
   border-radius: 10px;
-}
+} */
 @media only screen and (max-width: 900px) {
   .Builder_Right_Container {
     display: none;
@@ -95,11 +98,27 @@
 }
 @media only screen and (max-width: 550px) {
   .Builder_Left_Container {
-    padding: 7rem 4.5rem;
+    padding: 5rem 4rem;
+  }
+  .Builder_Mid_Container {
+    height: 60vh;
+  }
+  .Builder_Step_Heading_Container {
+    margin-top: 2rem;
+  }
+  .Builder_Container {
+    align-items: flex-start;
+  }
+  .Builder_Top_Container {
+    margin-bottom: 5rem;
+  }
+  .BuilderMainLogo {
+    width: 20rem;
+    object-fit: contain;
   }
 }
 @media only screen and (max-width: 450px) {
   .Builder_Left_Container {
-    padding: 7rem 3rem;
+    padding: 3rem 3rem;
   }
 }

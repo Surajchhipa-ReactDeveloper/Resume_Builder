@@ -104,7 +104,7 @@ textarea::-webkit-scrollbar {
 }
 /* ::webkit-w */
 ::-webkit-scrollbar-thumb {
-  background-color: #000000ba;
+  background-color: #0202027f;
   border-radius: 10px;
 }
 
@@ -121,4 +121,9 @@ textarea::-webkit-scrollbar {
 .ActiveErrorMassage {
   color: red;
   font-size: 1rem;
+}
+@media only screen and (max-width: 550px) {
+.Input_Img_Get_Box {
+  height: 6.5rem;
+}
 }

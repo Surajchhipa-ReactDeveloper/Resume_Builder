@@ -211,7 +211,7 @@ const Step1 = () => {
                   endIcon={countryError !== "" ? Icon.ErrorInput_Logo : ""}
                 />
               </div>
-              <button onClick={inputContentHandler}>Submit </button>
+              {/* <button onClick={inputContentHandler}>Submit </button> */}
             </div>
           </div>
         </div>

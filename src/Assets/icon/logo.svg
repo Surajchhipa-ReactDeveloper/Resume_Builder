@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="167" height="80" viewBox="0 0 167 80">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="150" height="62" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="logo" transform="translate(-50 -45)">
+    <text id="builder" transform="translate(50 120)" font-size="22" font-family="Questrial-Regular, Questrial"><tspan x="0" y="0">Builder</tspan></text>
+    <rect id="Rectangle_8" data-name="Rectangle 8" width="10" height="10" rx="5" transform="translate(207 85.5)" fill="#0b9ad6" opacity="0.25"/>
+    <g id="Repeat_Grid_1" data-name="Repeat Grid 1" transform="translate(50 45)" clip-path="url(#clip-path)">
+      <g transform="translate(-50 -45)">
+        <text id="resume" transform="translate(50 95)" fill="#0b9ad6" font-size="46" font-family="Righteous-Regular, Righteous"><tspan x="0" y="0">resume</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>
