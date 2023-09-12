@@ -28,7 +28,7 @@
   font-family: "Poppins-Medium";
 }
 .Home_Page_Heading {
-  font-size: 7.5rem;
+  font-size: 7.4rem;
   line-height: 7.5rem;
   color: black;
   font-family: "Poppins-Medium";
@@ -40,7 +40,7 @@ span {
   color: #0b9ad6;
 }
 .Home_Page_Title {
-  width: 81%;
+  width: 80%;
   margin-top: 1rem;
   font-size: 2.5rem;
   line-height: 3.5rem;
@@ -100,6 +100,10 @@ span {
   display: none;
 }
 
+.Home_Page_Button{
+  width: fit-content;
+}
+
 /* ************ MEDIA QUERIES ************* */
 @media only screen and (max-width: 1300px) {
   .Home_Page_Heading {
@@ -143,5 +147,7 @@ span {
     font-family: "Poppins-Medium";
     font-size: 1.8rem;
     letter-spacing: 0.11rem;
+  }
+  .Home_Page_Heading{
   }
 }
