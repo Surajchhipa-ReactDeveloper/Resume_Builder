@@ -1,6 +1,7 @@
 export const Icon = {
   LogoPrimer: require("../Assets/icon/logo.svg").default,
   LogoPrimer2: require("../Assets/icon/logo.png"),
+  CrossIcon: require("../Assets/icon/CrossIcon.png"),
   BackArrow: require("../Assets/icon/BackArrow.svg").default,
   IndianFlag: require("../Assets/icon/IndianFlag.svg").default,
   NextArrow: require("../Assets/icon/NextArrow.svg").default,

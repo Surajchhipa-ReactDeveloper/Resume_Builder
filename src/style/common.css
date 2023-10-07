@@ -35,6 +35,38 @@
   background-color: #0b9ad6;
   transition: all 0.8s ease-in-out;
 }
+.Common_Counter_Counter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: black;
+  width: 100%;
+  padding: 1.3rem 1.8rem;
+  border-radius: 1rem;
+  margin: 1rem 0rem;
+}
+.Degree_Container {
+  color: white;
+  font-size: 2.5rem;
+  line-height: 3.5rem;
+}
+.Cross_Icon_Container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #202020d3;
+  padding: 1rem;
+  border-radius: 0.6rem;
+}
+.Cross_Icon_Container:hover {
+  background-color: #0b9ad6;
+  transition: 1s;
+}
+.CrossIcon {
+  width: 1.5rem;
+  object-fit: contain;
+  /* border: 1px solid red; */
+}
 @media only screen and (max-width: 1200px) {
   .Common_Step_Input_Container {
     display: flex;
@@ -45,8 +77,8 @@
     width: 100%;
   }
   .Second_Prime_Class {
-  width: 100% !important;
-}
+    width: 100% !important;
+  }
 }
 @media only screen and (max-width: 900px) {
   .Common_Step_Input_Container {

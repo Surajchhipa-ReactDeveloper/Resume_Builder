@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Input.css";
+
 const TextArea = ({
   LabelText,
   Type,
@@ -14,22 +15,35 @@ const TextArea = ({
   error,
   marginTop,
 }) => {
+  const [text, setText] = useState(""); // Initialize text state
+  const maxWords = 250; // Set the maximum word limit
+
   const adjustTextareaHeight = (e) => {
     e.target.style.height = "auto";
     e.target.style.height = `${e.target.scrollHeight}px`;
   };
+
   const [focusedInput, setFocusedInput] = useState();
 
   const handleInputFocus = () => {
     setFocusedInput(!focusedInput);
   };
+
+  const handleTextChange = (e) => {
+    const newText = e.target.value;
+    // Split the text by spaces to count words
+    const wordCount = newText.trim().split(/\s+/).length;
+
+    if (wordCount <= maxWords) {
+      setText(newText);
+    }
+  };
+
   return (
     <>
       <div className="User_Input_Tag_Common">
         <label
-          className={`Label LabelMargin ${focusedInput ? "ActiveLabel" : ""}
-          
-          `}
+          className={`Label LabelMargin ${focusedInput ? "ActiveLabel" : ""}`}
         >
           {LabelText}
         </label>
@@ -56,6 +70,8 @@ const TextArea = ({
             placeholder={placeholderText}
             required
             onKeyUp={adjustTextareaHeight}
+            // value={text} 
+            onChange={handleTextChange} // Handlek text changes
           ></textarea>
           <p className={`ErrorMassage ${!error ? "ActiveErrorMassage" : ""}`}>
             {error}
@@ -79,10 +95,3 @@ const TextArea = ({
 };
 
 export default TextArea;
-
-
-//  const StepHeading = [
-//    "Personal Information",
-//    "Profile and Skills",
-//    "Education Details and Follow Links ",
-//  ];

@@ -6,23 +6,27 @@ import { Icon } from "../../../Constant/IconPath";
 const Step1 = () => {
   // ***************** NORMAL STATE ***********
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [country, setCountry] = useState("");
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    city: "",
+    state: "",
+    country: "",
+  });
 
   // ***************** ERROR STATE *************
 
-  const [firstNameError, setFirstNameError] = useState("");
-  const [LastNameError, setLastNameError] = useState("");
-  const [phoneError, setPhoneError] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [cityError, setCityError] = useState("");
-  const [stateError, setStateError] = useState("");
-  const [countryError, setCountryError] = useState("");
+  const [formErrors, setFormErrors] = useState({
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    city: "",
+    state: "",
+    country: "",
+  });
 
   const inputContentHandler = () => {
     try {
@@ -30,53 +34,79 @@ const Step1 = () => {
       let EmailFormat = /\S+@\S+\.\S+/;
 
       // Condition Check User Fill Input
-      if (firstName === "") {
-        setFirstNameError("Please enter your First name");
+      if (formData.firstName === "") {
+        setFormErrors((prevErrors) => ({
+          ...prevErrors,
+          firstName: "Please enter your First name",
+        }));
         hasError = true;
       } else {
-        setFirstNameError("");
+        setFormErrors((prevErrors) => ({ ...prevErrors, firstName: "" }));
+      }
+      if (formData.lastName === "") {
+        setFormErrors((prevErrors) => ({
+          ...prevErrors,
+          lastName: "Please enter your last name",
+        }));
+        hasError = true;
+      } else {
+        setFormErrors((prevErrors) => ({ ...prevErrors, lastName: "" }));
       }
 
-      if (lastName === "") {
-        setLastNameError("Please enter your lastName ");
+      if (formData.phone === "") {
+        setFormErrors((prevErrors) => ({
+          ...prevErrors,
+          phone: "Please enter your Phone Number",
+        }));
         hasError = true;
       } else {
-        setLastNameError("");
+        setFormErrors((prevErrors) => ({ ...prevErrors, phone: "" }));
       }
 
-      if (phone === "") {
-        setPhoneError("Please enter your phone");
+      if (formData.email === "") {
+        setFormErrors((prevErrors) => ({
+          ...prevErrors,
+          email: "Please enter your email",
+        }));
+        hasError = true;
+      } else if (!EmailFormat.test(formData.email)) {
+        setFormErrors((prevErrors) => ({
+          ...prevErrors,
+          email: "Please enter an Valid email",
+        }));
         hasError = true;
       } else {
-        setPhoneError("");
+        setFormErrors((prevErrors) => ({ ...prevErrors, email: "" }));
       }
 
-      if (email === "") {
-        setEmailError("Please enter your email");
+      if (formData.city === "") {
+        setFormErrors((prevErrors) => ({
+          ...prevErrors,
+          city: "Please enter your City",
+        }));
         hasError = true;
-      } else if (!EmailFormat.test(email)) {
-        setEmailError("Please enter an Valid email");
-        hasError = true;
+      } else {
+        setFormErrors((prevErrors) => ({ ...prevErrors, city: "" }));
       }
 
-      if (city === "") {
-        setCityError("Please enter your city");
+      if (formData.state === "") {
+        setFormErrors((prevErrors) => ({
+          ...prevErrors,
+          state: "Please enter your state ",
+        }));
         hasError = true;
       } else {
-        setCityError("");
+        setFormErrors((prevErrors) => ({ ...prevErrors, state: "" }));
       }
-      if (state === "") {
-        setStateError("Please enter your state");
+
+      if (formData.country === "") {
+        setFormErrors((prevErrors) => ({
+          ...prevErrors,
+          country: "Please enter your country ",
+        }));
         hasError = true;
       } else {
-        setStateError();
-        hasError = true;
-      }
-      if (country === "") {
-        setCountryError("Please enter your country");
-        hasError = true;
-      } else {
-        setCountryError("");
+        setFormErrors((prevErrors) => ({ ...prevErrors, country: "" }));
       }
     } catch (error) {
       console.log(error, "Find Error Chack Code");
@@ -95,33 +125,41 @@ const Step1 = () => {
               <div className="Basis_Details_Item Common_Basis_Details_Item">
                 <Input
                   marginTop={false}
-                  error={firstNameError}
+                  error={formErrors.firstName}
                   LabelText={"First Name"}
                   Type={"Name"}
                   Name={"Name"}
                   placeholderText={"Enter your first name"}
-                  value={firstName}
+                  value={formData.firstName}
                   onChange={(e) => {
-                    setFirstName(e.target.value);
+                    setFormData((prevData) => ({
+                      ...prevData,
+                      firstName: e.target.value,
+                    }));
                   }}
-                  startIcon={firstName !== "" ? "" : ""}
-                  endIcon={firstNameError !== "" ? Icon.ErrorInput_Logo : ""}
+                  endIcon={
+                    formErrors.firstName !== "" ? Icon.ErrorInput_Logo : ""
+                  }
                 />
               </div>
               <div className="Basis_Details_Item Common_Basis_Details_Item">
                 <Input
                   marginTop={true}
-                  error={LastNameError}
+                  error={formErrors.lastName}
                   LabelText={"Last Name"}
                   Type={"email"}
                   Name={"Email"}
                   placeholderText={"Enter your last name"}
-                  value={lastName}
+                  value={formData.lastName}
                   onChange={(e) => {
-                    setLastName(e.target.value);
+                    setFormData((prevData) => ({
+                      ...prevData,
+                      lastName: e.target.value,
+                    }));
                   }}
-                  startIcon={lastName !== "" ? "" : ""}
-                  endIcon={LastNameError !== "" ? Icon.ErrorInput_Logo : ""}
+                  endIcon={
+                    formErrors.lastName !== "" ? Icon.ErrorInput_Logo : ""
+                  }
                 />
               </div>
             </div>
@@ -134,32 +172,38 @@ const Step1 = () => {
               <div className="Contact_Details_Item Common_Contact_Details_Item">
                 <Input
                   marginTop={true}
-                  error={phoneError}
+                  error={formErrors.phone}
                   LabelText={"Phone"}
                   Type={"number"}
                   Name={"Phone"}
                   placeholderText={"00000-00000"}
-                  value={phone}
+                  value={formData.phone}
                   onChange={(e) => {
-                    setPhone(e.target.value);
+                    setFormData((prevData) => ({
+                      ...prevData,
+                      phone: e.target.value,
+                    }));
                   }}
-                  startIcon={phone === "" ? Icon.IndianFlag : ""}
-                  endIcon={phoneError !== "" ? Icon.ErrorInput_Logo : ""}
+                  startIcon={formData.phone === "" ? Icon.IndianFlag : ""}
+                  endIcon={formErrors.phone !== "" ? Icon.ErrorInput_Logo : ""}
                 />
               </div>
               <div className="Contact_Details_Item Common_Contact_Details_Item">
                 <Input
                   marginTop={true}
-                  error={emailError}
+                  error={formErrors.email}
                   LabelText={"Email"}
                   Type={"email"}
                   Name={"Email"}
                   placeholderText={"Enter your Email Adders"}
-                  // value={email}
+                  value={formData.email}
                   onChange={(e) => {
-                    setEmail(e.target.value);
+                    setFormData((prevData) => ({
+                      ...prevData,
+                      email: e.target.value,
+                    }));
                   }}
-                  endIcon={emailError !== "" ? Icon.ErrorInput_Logo : ""}
+                  endIcon={formErrors.email !== "" ? Icon.ErrorInput_Logo : ""}
                 />
               </div>
             </div>
@@ -167,31 +211,41 @@ const Step1 = () => {
               <div className="Contact_Details_Item Common_Contact_Details_Item">
                 <Input
                   marginTop={false}
-                  error={cityError}
+                  error={formErrors.city}
                   LabelText={"City"}
                   Type={"email"}
                   Name={"Email"}
                   placeholderText={"Enter your city"}
-                  value={city}
+                  value={formData.city}
                   onChange={(e) => {
-                    setCity(e.target.value);
+                    setFormData((prevData) => ({
+                      ...prevData,
+                      city: e.target.value,
+                    }));
                   }}
-                  endIcon={cityError !== "" ? Icon.ErrorInput_Logo : ""}
+                  endIcon={
+                    formErrors.city !== "" ? Icon.ErrorInput_Logo : ""
+                  }
                 />
               </div>
               <div className="Contact_Details_Item Common_Contact_Details_Item">
                 <Input
                   marginTop={false}
-                  error={stateError}
+                  error={formErrors.state}
                   LabelText={"Email"}
                   Type={"email"}
                   Name={"Email"}
-                  placeholderText={"Enter your email"}
-                  // value={email}
+                  placeholderText={"Enter your state"}
+                  value={formData.state}
                   onChange={(e) => {
-                    setState(e.target.value);
+                    setFormData((prevData) => ({
+                      ...prevData,
+                      state: e.target.value,
+                    }));
                   }}
-                  endIcon={stateError !== "" ? Icon.ErrorInput_Logo : ""}
+                  endIcon={
+                    formErrors.state !== "" ? Icon.ErrorInput_Logo : ""
+                  }
                 />
               </div>
             </div>
@@ -199,16 +253,21 @@ const Step1 = () => {
               <div className="Contact_Details_Item Common_Contact_Details_Item">
                 <Input
                   marginTop={false}
-                  error={country}
+                  error={formErrors.country}
                   LabelText={"Country"}
                   Type={"text"}
                   Name={"Country"}
                   placeholderText={"Enter your country"}
-                  // value={email}
+                  value={formData.country}
                   onChange={(e) => {
-                    setCountry(e.target.value);
+                    setFormData((prevData) => ({
+                      ...prevData,
+                      country: e.target.value,
+                    }));
                   }}
-                  endIcon={countryError !== "" ? Icon.ErrorInput_Logo : ""}
+                  endIcon={
+                    formErrors.country !== "" ? Icon.ErrorInput_Logo : ""
+                  }
                 />
               </div>
               {/* <button onClick={inputContentHandler}>Submit </button> */}

@@ -4,43 +4,46 @@ import "./Step3.css";
 import { useState } from "react";
 import { Icon } from "../../../Constant/IconPath";
 import Input from "../../Common/Input/Input";
-import Education from "../../Common/Education/Education";
 const Step3 = () => {
   // ************* NORMAL INPUT STATE START**************
 
-  const [course, setCourse] = useState("");
-  const [institute, setInstitute] = useState("");
-  const [startYear, setStartYear] = useState("");
-  const [endYear, setEndYear] = useState("");
-  const [facebook, setFacebook] = useState("");
-  const [instagram, setInstagram] = useState("");
-  const [linkedIn, setLinkedIn] = useState("");
-  const [behance, setBehance] = useState("");
-  const [portfolio, setPortfolio] = useState("");
+  const [formData3, setFormData3] = useState({
+    facebook: "",
+    instagram: "",
+    linkedIn: "",
+    behance: "",
+    portfolio: "",
+  });
+
+  // Function to create a new education container with initial state
 
   // ************* NORMAL INPUT STATE  END**************
 
   // ************* ERROR STATE START**************
-  const [courseError, setCourseError] = useState("");
-  const [instituteError, setInstituteError] = useState("");
-  const [portfolioError, setPortfolioError] = useState("");
-  const [behanceError, setBehanceError] = useState("");
-  const [linkedInError, setLinkedInError] = useState("");
-  const [instagramError, setInstagramError] = useState("");
-  const [facebookError, setFacebookError] = useState("");
-  const [errorStartYear, setErrorStartYear] = useState("");
-  const [errorEndYear, setErrorEndYear] = useState("");
+  const [formErrors3, setFormErrors3] = useState({
+    course: "",
+    institute: "",
+    portfolio: "",
+    behance: "",
+    linkedIn: "",
+    instagram: "",
+    facebook: "",
+    startYear: "",
+    endYear: "",
+  });
 
   // ************* ERROR STATE END**************
-
+  const createEducationContainer = () => ({
+    course: "",
+    institute: "",
+    startYear: "",
+    endYear: "",
+  });
   // ******************* NORMAL STATE START ************
 
-  const [now, setNow] = useState([]);
   const [hide, setHide] = useState(false);
   const [hide2, setHide2] = useState(false);
-  const [education, setEducation] = useState(0);
-  const [educations, setEducations] = useState([1]);
-
+  const [educations, setEducations] = useState([createEducationContainer()]);
   // ******************* NORMAL STATE END ************
 
   // *************************
@@ -70,45 +73,75 @@ const Step3 = () => {
   const endOnClick2 = () => {
     setHide2(!hide2);
   };
-
-  const MoreAddEducation = () => {
-    if (education < 3) {
-      setEducations((prevEducations) => [...prevEducations, {}]);
-      setEducation(education + 1);
+  // Function to remove an education container by index
+  const removeEducationContainer = (indexToRemove) => {
+    if (educations.length > 1) {
+      setEducations((prevEducations) =>
+        prevEducations.filter((_, index) => index !== indexToRemove)
+      );
     }
   };
+
+  const MoreAddEducation = () => {
+    if (educations.length < 3) {
+      setEducations((prevEducations) => [
+        ...prevEducations,
+        { id: prevEducations.length + 1 },
+      ]);
+    }
+  };
+
+  // Function to handle changes in an education container
+  const handleEducationChange = (index, field, value) => {
+    setEducations((prevEducations) =>
+      prevEducations.map((education, i) =>
+        i === index ? { ...education, [field]: value } : education
+      )
+    );
+  };
+
   const educationComponents = educations.map((educationEntry, index) => (
     <div key={index} className="Step_Secondary_Input_Container">
-      {/* <h6>Degree {educations}</h6> */}
+      <div className="Common_Counter_Counter">
+        <h6 className="Degree_Container">Degree No.{index + 1}</h6>
+        {index > 0 && index <= 3 && (
+          <div
+            className="Cross_Icon_Container"
+            onClick={() => removeEducationContainer(index)}
+          >
+            <img src={Icon.CrossIcon} alt="" className="CrossIcon" />
+          </div>
+        )}
+      </div>
 
       <div className=" Common_SIngle_Class">
         <Input
           marginTop={false}
-          error={courseError}
+          error={formErrors3.course}
           LabelText={"Course / Degree Name"}
           Type={"text"}
           Name={"Title"}
           placeholderText={"Like BBA, MBA, BCA, etc."}
-          value={course}
+          value={formData3.course}
           onChange={(e) => {
-            setCourse(e.target.value);
+            handleEducationChange(index, "course", e.target.value);
           }}
-          endIcon={courseError !== "" ? Icon.ErrorInput_Logo : ""}
+          endIcon={formErrors3.course !== "" ? Icon.ErrorInput_Logo : ""} 
         />
       </div>
       <div className=" Common_SIngle_Class">
         <Input
           marginTop={false}
-          error={instituteError}
+          error={formErrors3.institute}
           LabelText={"Institute / College Name"}
           Type={"text"}
           Name={"Title"}
           placeholderText={"Like Oxford University, Harvard University, etc."}
-          value={institute}
+          value={formData3.institute}
           onChange={(e) => {
-            setInstitute(e.target.value);
+            handleEducationChange(index, "Institute", e.target.value);
           }}
-          endIcon={instituteError !== "" ? Icon.ErrorInput_Logo : ""}
+          endIcon={formErrors3.institute !== "" ? Icon.ErrorInput_Logo : ""}
         />
       </div>
       {/* ************* */}
@@ -119,40 +152,39 @@ const Step3 = () => {
         <div className="Contact_Details_Item Common_Contact_Details_Item">
           <Input
             marginTop={true}
-            // error={title}
-            LabelText={"Ending Year"}
+            error={formErrors3.startYear}
+            LabelText={"Starting Year"}
             Type={"number"}
             Name={"EYear"}
             placeholderText={"Select"}
-            value={startYear}
+            value={formData3.startYear}
             onChange={(e) => {
-              setStartYear(e.target.value);
+              handleEducationChange(index, "Starting Year", e.target.value);
             }}
             endIcon={
-              errorStartYear == ""
+              formErrors3.startYear == ""
                 ? hide
                   ? Icon.UpArrow
                   : Icon.DownArrow
                 : Icon.ErrorInput_Logo
             }
-            onClick
             endOnClick={endOnClick}
           />
         </div>
         <div className="Contact_Details_Item Common_Contact_Details_Item">
           <Input
             marginTop={true}
-            // error={title}
+            error={formErrors3.endYear}
             LabelText={"Ending Year"}
             Type={"number"}
             Name={"EYear"}
             placeholderText={"Select"}
-            value={endYear}
+            value={formData3.endYear}
             onChange={(e) => {
-              setEndYear(e.target.value);
+              handleEducationChange(index, "Ending Year", e.target.value);
             }}
             endIcon={
-              errorEndYear == ""
+              formErrors3.endYear == ""
                 ? hide2
                   ? Icon.UpArrow
                   : Icon.DownArrow
@@ -186,7 +218,7 @@ const Step3 = () => {
                 <p>No education added yet.</p>
               )}
             </div>
-            {education < 3 && (
+            {educations.length < 3 && (
               <div className="Add_Skill_Button" onClick={MoreAddEducation}>
                 <div className="plusIconContainer">
                   <img src={Icon.plusIcon} alt="" className="plusIcon" />
@@ -203,31 +235,41 @@ const Step3 = () => {
               <div className="Contact_Details_Item Common_Contact_Details_Item">
                 <Input
                   marginTop={true}
-                  error={portfolioError}
+                  error={formErrors3.facebook}
                   LabelText={"Facebook"}
                   Type={"text"}
                   Name={"facebook"}
                   placeholderText={"Enter your Username"}
-                  value={facebook}
+                  value={formData3.facebook}
                   onChange={(e) => {
-                    setFacebook(e.target.value);
+                    setFormData3((prevData) => ({
+                      ...prevData,
+                      facebook: e.target.value,
+                    }));
                   }}
-                  endIcon={portfolioError !== "" ? Icon.ErrorInput_Logo : ""}
+                  endIcon={
+                    formErrors3.facebook !== "" ? Icon.ErrorInput_Logo : ""
+                  }
                 />
               </div>
               <div className="Contact_Details_Item Common_Contact_Details_Item">
                 <Input
                   marginTop={true}
-                  error={instagramError}
+                  error={formErrors3.instagram}
                   LabelText={"Email"}
                   Type={"email"}
                   Name={"Email"}
                   placeholderText={"Enter Your Username"}
-                  value={instagram}
+                  value={formData3.instagram}
                   onChange={(e) => {
-                    setInstagram(e.target.value);
+                    setFormData3((prevData) => ({
+                      ...prevData,
+                      instagram: e.target.value,
+                    }));
                   }}
-                  endIcon={instagramError !== "" ? Icon.ErrorInput_Logo : ""}
+                  endIcon={
+                    formErrors3.instagram !== "" ? Icon.ErrorInput_Logo : ""
+                  }
                 />
               </div>
             </div>
@@ -235,31 +277,41 @@ const Step3 = () => {
               <div className="Contact_Details_Item Common_Contact_Details_Item">
                 <Input
                   marginTop={false}
-                  error={linkedInError}
+                  error={formErrors3.linkedIn}
                   LabelText={"LinkedIn"}
                   Type={"text"}
                   Name={"LinkedIn"}
                   placeholderText={"Enter Your Username"}
-                  value={linkedIn}
+                  value={formData3.linkedIn}
                   onChange={(e) => {
-                    setLinkedIn(e.target.value);
+                    setFormData3((prevData) => ({
+                      ...prevData,
+                      linkedIn: e.target.value,
+                    }));
                   }}
-                  endIcon={linkedInError !== "" ? Icon.ErrorInput_Logo : ""}
+                  endIcon={
+                    formErrors3.linkedIn !== "" ? Icon.ErrorInput_Logo : ""
+                  }
                 />
               </div>
               <div className="Contact_Details_Item Common_Contact_Details_Item">
                 <Input
                   marginTop={false}
-                  error={behanceError}
+                  // error={formErrors3.portfolio}
                   LabelText={"Behance"}
                   Type={"text"}
                   Name={"Behance"}
                   placeholderText={"Enter your Username"}
-                  value={behance}
+                  value={formData3.portfolio}
                   onChange={(e) => {
-                    setBehance(e.target.value);
+                    setFormData3((prevData) => ({
+                      ...prevData,
+                      portfolio: e.target.value,
+                    }));
                   }}
-                  endIcon={behanceError !== "" ? Icon.ErrorInput_Logo : ""}
+                  // endIcon={
+                  //   formErrors3.portfolio !== "" ? Icon.ErrorInput_Logo : ""
+                  // }
                 />
               </div>
             </div>
@@ -271,11 +323,14 @@ const Step3 = () => {
                   Type={"text"}
                   Name={"Portfolio"}
                   placeholderText={"Enter your Username"}
-                  value={portfolio}
+                  value={formData3.portfolio}
                   onChange={(e) => {
-                    setPortfolio(e.target.value);
+                    setFormData3((prevData) => ({
+                      ...prevData,
+                      portfolio: e.target.value,
+                    }));
                   }}
-                  endIcon={portfolioError !== "" ? Icon.ErrorInput_Logo : ""}
+                  // endIcon={portfolioError !== "" ? Icon.ErrorInput_Logo : ""}
                 />
               </div>
             </div>

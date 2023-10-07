@@ -8,12 +8,25 @@ import { Icon } from "../../../Constant/IconPath";
 
 const Step2 = () => {
   const [input2Count, setInput2Count] = useState(1); // Initial count
-  const [title, setTitle] = useState("");
-  const [skill, setSkill] = useState("");
-  const [description, setDescription] = useState("");
-  const [skillError, setSkillError] = useState();
-  const [titleError, setTitleError] = useState("");
-  const [descriptionError, setDescriptionError] = useState();
+
+  const [formData2, setFormData2] = useState({
+    title: "",
+    skill: "",
+    description: "",
+  });
+
+  const [formErrors2, setFormErrors2] = useState({
+    title: "",
+    skill: "",
+    description: "",
+  });
+
+  // const [title, setTitle] = useState("");
+  // const [skill, setSkill] = useState("");
+  // const [description, setDescription] = useState("");
+  // const [titleError, setTitleError] = useState("");
+  // const [skillError, setSkillError] = useState();
+  // const [descriptionError, setDescriptionError] = useState();
 
   const MoreAddSkill = () => {
     if (input2Count < 3) {
@@ -36,11 +49,13 @@ const Step2 = () => {
         marginTop={false}
         Type={"text"}
         Name={"Skill"}
-        value={skill}
+        value={formData2.skill}
         onChange={(e) => {
-          setSkill(e.target.value);
+          setFormData2((prevData) => ({
+            ...prevData,
+            skill: e.target.value,
+          }));
         }}
-        startIcon={skill !== "" ? "" : ""}
       />
     </div>
   ));
@@ -57,33 +72,39 @@ const Step2 = () => {
               <div className="Job_Details_Item">
                 <Input
                   marginTop={false}
-                  error={titleError}
+                  error={formErrors2.title}
                   LabelText={"Title"}
                   Type={"text"}
                   Name={"Title"}
                   placeholderText={"Enter your job title"}
-                  value={title}
+                  value={formData2.title}
                   onChange={(e) => {
-                    setTitle(e.target.value);
+                    setFormData2((prevData) => ({
+                      ...prevData,
+                      title: e.target.value,
+                    }));
                   }}
-                  startIcon={title !== "" ? "" : ""}
-                  endIcon={titleError !== "" ? Icon.ErrorInput_Logo : ""}
+                  endIcon={formErrors2.title !== "" ? Icon.ErrorInput_Logo : ""}
                 />
               </div>
               <div className="Job_Details_Item">
                 <TextArea
                   placeholderText={"Enter your short description"}
                   marginTop={false}
-                  error={descriptionError}
+                  error={formErrors2.description}
                   LabelText={"About Me / Career Objective / Profile Summary"}
                   Type={"text"}
                   Name={"Description"}
-                  value={description}
+                  value={formData2.description}
                   onChange={(e) => {
-                    setDescription(e.target.value);
+                    setFormData2((prevData) => ({
+                      ...prevData,
+                      description: e.target.value,
+                    }));
                   }}
-                  startIcon={description !== "" ? "" : ""}
-                  endIcon={descriptionError !== "" ? Icon.ErrorInput_Logo : ""}
+                  endIcon={
+                    formErrors2.description !== "" ? Icon.ErrorInput_Logo : ""
+                  }
                 />
               </div>
             </div>

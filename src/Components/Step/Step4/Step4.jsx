@@ -1,150 +1,144 @@
-import React from "react";
+import React, { useState } from "react";
 import "../Step1/Step1.css";
-// import "./Step3.css";
 import "./Step4.css";
-import { useState } from "react";
 import { Icon } from "../../../Constant/IconPath";
 import Input from "../../Common/Input/Input";
 import TextArea from "../../Common/Input/TextArea";
-// import Education from "../../Common/Education/Education";
+
 const Step4 = () => {
-  // ************* NORMAL INPUT STATE START**************
+  const [formData4, setFormData4] = useState({
+    jobProfile: "",
+    companyName: "",
+    location: "",
+    jobDescription: "",
+    startYear: "",
+    endYear: "",
+  });
 
-  const [jobProfile, setJobProfile] = useState("");
-  const [companyName, setCompanyName] = useState("");
-  const [location, setLocation] = useState("");
-  const [jobDescription, setJobDescription] = useState("");
-  const [startYear, setStartYear] = useState("");
-  const [endYear, setEndYear] = useState("");
+  const [formErrors, setFormErrors] = useState({
+    jobProfile: "",
+    companyName: "",
+    location: "",
+    jobDescription: "",
+    startYear: "",
+    endYear: "",
+  });
 
-  // ************* NORMAL INPUT STATE  END**************
+  console.log(formData4);
 
-  // ************* ERROR STATE START**************
-  const [jobProfileError, setJobProfileError] = useState("");
-  const [companyNameError, setCompanyNameError] = useState("");
-  const [locationError, setLocationError] = useState("");
-  const [jobDescriptionError, setJobDescriptionError] = useState("");
-  const [errorStartYear, setErrorStartYear] = useState("");
-  const [errorEndYear, setErrorEndYear] = useState("");
-
-  //
-
-  //
-
-  // ************* ERROR STATE END**************
-
-  // ******************* NORMAL STATE START ************
-
-  const [now, setNow] = useState([]);
   const [hide, setHide] = useState(false);
   const [hide2, setHide2] = useState(false);
   const [experience, setExperience] = useState(0);
   const [experiences, setExperiences] = useState([1]);
 
-  // ******************* NORMAL STATE END ************
-
-  // *************************
   const currentYear = new Date().getFullYear();
   const [selectedYear, setSelectedYear] = useState(currentYear);
-  const StartYear = currentYear - 100;
-  const EndYear = currentYear + 10;
 
   const years = Array.from(
-    { length: StartYear + EndYear + 1 },
-    (_, index) => selectedYear + index
+    { length: currentYear - 100 },
+    (_, index) => currentYear + index
   );
-
-  // *************************
 
   const endOnClick = (event) => {
     setHide(!hide);
     const inputValue = event.target.value;
     const newYear = parseInt(inputValue, 10) || 0;
     setSelectedYear(newYear);
-    console.log(selectedYear);
-    console.log("Selected Year (Start Year):", newYear);
   };
 
   const endOnClick2 = () => {
     setHide2(!hide2);
-    console.log("Selected Start Year:", selectedYear);
-    console.log("Selected End Year:", endYear);
   };
 
-  const MoreAddEducation = () => {
+  // Function to remove an education container by index
+  // const removeEducationContainer = (indexToRemove) => {
+  //   if (experiences.length > 1) {
+  //     setExperience((prevExperiences) =>
+  //       prevExperiences.filter((_, index) => index !== indexToRemove)
+  //     );
+  //   }
+  // };
+
+  const MoreAddExperience = () => {
     if (experience < 3) {
-      setExperiences((prevEducations) => [...prevEducations, {}]);
+      console.log(experience); // Check the value of experience
+      setExperiences((prevExperiences) => [...prevExperiences, {}]);
       setExperience(experience + 1);
     }
   };
-  const ExperienceComponents = experiences.map((educationEntry, index) => (
-    <div key={index} className="Step_Secondary_Input_Container">
-      {/* <h6>Degree {educations}</h6> */}
 
+  const ExperienceComponents = experiences.map((experienceEntry, index) => (
+    <div key={index} className="Step_Secondary_Input_Container">
+      <div className="Common_Counter_Counter">
+        <h6 className="Degree_Container">Experience No.{index + 1}</h6>
+        {index > 0 && index <= 3 && (
+          <div
+            className="Cross_Icon_Container"
+            // onClick={() => removeEducationContainer(index)}
+          >
+            <img src={Icon.CrossIcon} alt="" className="CrossIcon" />
+          </div>
+        )}
+      </div>
       <div className="Job_Details_Item">
         <Input
           marginTop={false}
-          error={jobProfileError}
+          error={formErrors.jobProfile}
           LabelText={"Job Profile "}
           Type={"text"}
-          Name={"Title"}
+          Name={"jobProfile"}
           placeholderText={"Like Designer, HR, Web Developer, etc."}
-          value={jobProfile}
-          onChange={(e) => {
-            setJobProfile(e.target.value);
-          }}
-          endIcon={jobProfileError !== "" ? Icon.ErrorInput_Logo : ""}
+          value={formData4.jobProfile}
+          onChange={(e) =>
+            setFormData4({ ...formData4, jobProfile: e.target.value })
+          }
+          endIcon={formErrors.jobProfile !== "" ? Icon.ErrorInput_Logo : ""}
         />
       </div>
       <div className="Job_Details_Item">
         <Input
           marginTop={false}
-          error={companyNameError}
+          error={formErrors.companyName}
           LabelText={"Company Name"}
           Type={"text"}
-          Name={"Title"}
+          Name={"companyName"}
           placeholderText={"Like Google, Amazon, TCS, etc."}
-          value={companyName}
-          onChange={(e) => {
-            setCompanyName(e.target.value);
-          }}
-          endIcon={companyNameError !== "" ? Icon.ErrorInput_Logo : ""}
+          value={formData4.companyName}
+          onChange={(e) =>
+            setFormData4({ ...formData4, companyName: e.target.value })
+          }
+          endIcon={formErrors.companyName !== "" ? Icon.ErrorInput_Logo : ""}
         />
       </div>
       <div className="Job_Details_Item">
         <Input
           marginTop={false}
-          error={locationError}
+          error={formErrors.location}
           LabelText={"Enter location"}
           Type={"text"}
-          Name={"Title"}
+          Name={"location"}
           placeholderText={"Enter location"}
-          value={location}
-          onChange={(e) => {
-            setLocation(e.target.value);
-          }}
-          endIcon={locationError !== "" ? Icon.ErrorInput_Logo : ""}
+          value={formData4.location}
+          onChange={(e) =>
+            setFormData4({ ...formData4, location: e.target.value })
+          }
+          endIcon={formErrors.location !== "" ? Icon.ErrorInput_Logo : ""}
         />
       </div>
-      {/* ************* */}
-
-      {/* ************* */}
-
       <div className="Step_Input_Container Common_Step_Input_Container">
         <div className="Contact_Details_Item Common_Contact_Details_Item">
           <Input
             marginTop={true}
-            // error={title}
             LabelText={"Starting Year"}
             Type={"number"}
-            Name={"EYear"}
+            Name={"startYear"}
             placeholderText={"Select"}
-            value={startYear}
-            onChange={(e) => {
-              setStartYear(e.target.value);
-            }}
+            value={formData4.startYear}
+            onChange={(e) =>
+              setFormData4({ ...formData4, startYear: e.target.value })
+            }
             endIcon={
-              errorStartYear === ""
+              formErrors.startYear === ""
                 ? hide
                   ? Icon.UpArrow
                   : Icon.DownArrow
@@ -156,17 +150,16 @@ const Step4 = () => {
         <div className="Contact_Details_Item Common_Contact_Details_Item">
           <Input
             marginTop={true}
-            // error={title}
             LabelText={"Ending Year"}
             Type={"number"}
-            Name={"EYear"}
+            Name={"endYear"}
             placeholderText={"Select"}
-            value={endYear}
-            onChange={(e) => {
-              setEndYear(e.target.value);
-            }}
+            value={formData4.endYear}
+            onChange={(e) =>
+              setFormData4({ ...formData4, endYear: e.target.value })
+            }
             endIcon={
-              errorEndYear === ""
+              formErrors.endYear === ""
                 ? hide2
                   ? Icon.UpArrow
                   : Icon.DownArrow
@@ -183,14 +176,14 @@ const Step4 = () => {
           marginTop={false}
           LabelText={"Description"}
           Type={"text"}
-          Name={"Description"}
-          value={jobDescription}
+          Name={"jobDescription"}
+          value={formData4.jobDescription}
           placeholderText={
             "Enter your short job description about your role in company"
           }
-          onChange={(e) => {
-            setJobDescription(e.target.value);
-          }}
+          onChange={(e) =>
+            setFormData4({ ...formData4, jobDescription: e.target.value })
+          }
         />
       </div>
     </div>
@@ -218,7 +211,7 @@ const Step4 = () => {
             {experience < 3 && (
               <div
                 className="Add_Skill_Button Add_More_Exp"
-                onClick={MoreAddEducation}
+                onClick={MoreAddExperience}
               >
                 <div className="plusIconContainer">
                   <img src={Icon.plusIcon} alt="" className="plusIcon" />
@@ -232,4 +225,5 @@ const Step4 = () => {
     </>
   );
 };
+
 export default Step4;
