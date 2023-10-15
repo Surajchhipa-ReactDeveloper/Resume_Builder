@@ -6,6 +6,7 @@
   color: #202020d3;
   margin-bottom: 1rem;
 }
+
 .common_Details_For_All {
   display: flex;
   flex-direction: column;
@@ -21,7 +22,7 @@
 .Common_Basis_Details_Item,
 .Common_Skill_Details_Item,
 .Common_Contact_Details_Item {
-  width: 47%;
+  width: 47% !important;
 }
 .Common_Step_Secondary_Input_Container {
   display: flex;
@@ -29,7 +30,7 @@
   gap: 1.5rem;
 }
 .Second_Prime_Class {
-  width: 47% !important;
+  width: 47%;
 }
 .plusIconContainer:hover {
   background-color: #0b9ad6;
@@ -67,6 +68,46 @@
   object-fit: contain;
   /* border: 1px solid red; */
 }
+
+/* FOR START & END YEAR SELECT CSS START  */
+.Options_Container_Main {
+  height: 5rem;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 2rem;
+  margin: 0.8rem 0rem;
+}
+
+.Select_Container_TRUE {
+  border: 1.8px solid #2020202f;
+  border-radius: 1rem;
+  max-height: 29rem;
+  padding: 0.5rem;
+  display: block !important;
+  cursor: pointer;
+}
+.Select_Container {
+  position: absolute;
+  z-index: 10;
+  background-color: white;
+  width: 100%;
+  display: none;
+  border-radius: 1.5rem;
+  max-height: 28rem;
+  overflow: auto;
+  padding: 1rem;
+}
+.Date_Container {
+  position: relative;
+}
+
+.Option_Container_Option {
+  font-size: 3rem;
+  margin: 1rem 0rem;
+  color: #202020a9;
+  font-family: "Questrial-Regular";
+}
+/* FOR START & END YEAR SELECT CSS END  */
 @media only screen and (max-width: 1200px) {
   .Common_Step_Input_Container {
     display: flex;
@@ -74,7 +115,7 @@
   }
   .Common_Basis_Details_Item,
   .Common_Contact_Details_Item {
-    width: 100%;
+    width: 100% !important;
   }
   .Second_Prime_Class {
     width: 100% !important;
@@ -88,7 +129,7 @@
   .Common_Basis_Details_Item,
   .Common_Skill_Details_Item,
   .Common_Contact_Details_Item {
-    width: 47%;
+    width: 47% !important;
   }
   .Common_SIngle_Class {
     width: 100% !important;
@@ -105,7 +146,7 @@
   .Common_Basis_Details_Item,
   .Common_Skill_Details_Item,
   .Common_Contact_Details_Item {
-    width: 100%;
+    width: 100% !important;
   }
   .Common_SIngle_Class {
     width: 100% !important;

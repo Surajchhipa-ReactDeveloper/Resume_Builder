@@ -7,11 +7,11 @@ import Input2 from "../../Common/Input/Input2";
 import { Icon } from "../../../Constant/IconPath";
 
 const Step2 = () => {
-  const [input2Count, setInput2Count] = useState(1); // Initial count
+  const [input2Count, setInput2Count] = useState(2); // Initial count
 
   const [formData2, setFormData2] = useState({
     title: "",
-    skill: "",
+    skills: [],
     description: "",
   });
 
@@ -20,7 +20,8 @@ const Step2 = () => {
     skill: "",
     description: "",
   });
-
+  console.log(formData2.description);
+  console.log(formData2);
   // const [title, setTitle] = useState("");
   // const [skill, setSkill] = useState("");
   // const [description, setDescription] = useState("");
@@ -29,7 +30,7 @@ const Step2 = () => {
   // const [descriptionError, setDescriptionError] = useState();
 
   const MoreAddSkill = () => {
-    if (input2Count < 3) {
+    if (input2Count < 6) {
       setInput2Count(input2Count + 1);
     }
   };
@@ -43,22 +44,34 @@ const Step2 = () => {
     "Enter Skill No. 6",
   ];
   const input2Components = Array.from({ length: input2Count }, (_, index) => (
-    <div className="Job_Details_Item" key={index}>
+    <div className="Job_Details_Item Skill_Container" key={index}>
       <Input
         placeholderText={placeholders[index]}
         marginTop={false}
         Type={"text"}
         Name={"Skill"}
-        value={formData2.skill}
+        value={formData2.skills[index] || ""} // Access skills from the array
         onChange={(e) => {
+          const newSkills = [...formData2.skills];
+          newSkills[index] = e.target.value; // Update the specific skill
           setFormData2((prevData) => ({
             ...prevData,
-            skill: e.target.value,
+            skills: newSkills,
           }));
         }}
       />
     </div>
   ));
+
+  const handleDescriptionChange = (e) => {
+    const value = e.target.value;
+    setFormData2((prevData) => ({
+      ...prevData,
+      description: value,
+    }));
+  };
+
+  console.log("formData2.description:", formData2.description);
 
   return (
     <>
@@ -96,12 +109,7 @@ const Step2 = () => {
                   Type={"text"}
                   Name={"Description"}
                   value={formData2.description}
-                  onChange={(e) => {
-                    setFormData2((prevData) => ({
-                      ...prevData,
-                      description: e.target.value,
-                    }));
-                  }}
+                  onChange={handleDescriptionChange}
                   endIcon={
                     formErrors2.description !== "" ? Icon.ErrorInput_Logo : ""
                   }
@@ -114,21 +122,16 @@ const Step2 = () => {
               4. Skills / Expertise
             </h2>
             <div className="Step_Input_Container Common_Step_Input_Container">
-              {input2Components.length > 0 ? (
+              {input2Components.length > 1 ? (
                 <div className="Step_Skill_Input_Container Common_Step_Input_Container ">
-                  <div className="Skill_Details_Item Second_Prime_Class">
-                    {input2Components}
-                  </div>
-                  <div className="Skill_Details_Item Second_Prime_Class">
-                    {input2Components}
-                  </div>
+                  {input2Components}
                 </div>
               ) : (
                 <p>No skills added yet.</p>
               )}
             </div>
           </div>
-          {input2Count < 3 && (
+          {input2Count < 6 && (
             <div className="Add_Skill_Button" onClick={MoreAddSkill}>
               <div className="plusIconContainer">
                 <img src={Icon.plusIcon} alt="" className="plusIcon" />

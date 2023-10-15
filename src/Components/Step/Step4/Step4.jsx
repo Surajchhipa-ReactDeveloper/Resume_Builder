@@ -32,12 +32,13 @@ const Step4 = () => {
   const [experiences, setExperiences] = useState([1]);
 
   const currentYear = new Date().getFullYear();
-  const [selectedYear, setSelectedYear] = useState(currentYear);
-
+  const startYearOption = 1900;
   const years = Array.from(
-    { length: currentYear - 100 },
-    (_, index) => currentYear + index
+    { length: currentYear - startYearOption + 1 },
+    (_, index) => startYearOption + index
   );
+  const [optionYear, setOptionYear] = useState(years);
+  const [selectedYear, setSelectedYear] = useState(currentYear);
 
   const endOnClick = (event) => {
     setHide(!hide);
@@ -50,14 +51,7 @@ const Step4 = () => {
     setHide2(!hide2);
   };
 
-  // Function to remove an education container by index
-  // const removeEducationContainer = (indexToRemove) => {
-  //   if (experiences.length > 1) {
-  //     setExperience((prevExperiences) =>
-  //       prevExperiences.filter((_, index) => index !== indexToRemove)
-  //     );
-  //   }
-  // };
+
 
   const MoreAddExperience = () => {
     if (experience < 3) {
@@ -65,6 +59,17 @@ const Step4 = () => {
       setExperiences((prevExperiences) => [...prevExperiences, {}]);
       setExperience(experience + 1);
     }
+  };
+
+  const handleSelectYear = (selectedYear) => {
+    setFormData4({ ...formData4, startYear: selectedYear });
+    console.log("Selected Year for Start Year: ", selectedYear);
+    setHide(!hide);
+  };
+  const handleSelectYear2 = (selectedYearEnd) => {
+    setFormData4({ ...formData4, endYear: selectedYearEnd });
+    console.log("Selected Year for End Year: ", selectedYearEnd);
+    setHide2(!hide2);
   };
 
   const ExperienceComponents = experiences.map((experienceEntry, index) => (
@@ -126,7 +131,7 @@ const Step4 = () => {
         />
       </div>
       <div className="Step_Input_Container Common_Step_Input_Container">
-        <div className="Contact_Details_Item Common_Contact_Details_Item">
+        <div className="Contact_Details_Item Common_Contact_Details_Item Date_Container">
           <Input
             marginTop={true}
             LabelText={"Starting Year"}
@@ -146,8 +151,29 @@ const Step4 = () => {
             }
             endOnClick={endOnClick}
           />
+          <div
+            className={`Select_Container ${
+              hide !== false ? "Select_Container_TRUE" : ""
+            }`}
+          >
+            {hide &&
+              optionYear.map((year, index) => (
+                <div
+                  key={index}
+                  value={year == formData4.startYear}
+                  className="Options_Container_Main"
+                >
+                  <div
+                    className="Option_Container_Option"
+                    onClick={() => handleSelectYear(year)}
+                  >
+                    {year}
+                  </div>
+                </div>
+              ))}
+          </div>
         </div>
-        <div className="Contact_Details_Item Common_Contact_Details_Item">
+        <div className="Contact_Details_Item Common_Contact_Details_Item Date_Container">
           <Input
             marginTop={true}
             LabelText={"Ending Year"}
@@ -166,9 +192,28 @@ const Step4 = () => {
                 : Icon.ErrorInput_Logo
             }
             endOnClick={endOnClick2}
-            min={1900}
-            max={new Date().getFullYear() + 10}
           />
+          <div
+            className={`Select_Container ${
+              hide2 !== false ? "Select_Container_TRUE" : ""
+            }`}
+          >
+            {hide2 &&
+              optionYear.map((year, index) => (
+                <div
+                  key={index}
+                  value={year == formData4.endYear}
+                  className="Options_Container_Main"
+                >
+                  <div
+                    className="Option_Container_Option"
+                    onClick={() => handleSelectYear2(year)}
+                  >
+                    {year}
+                  </div>
+                </div>
+              ))}
+          </div>
         </div>
       </div>
       <div className="Job_Details_Item">

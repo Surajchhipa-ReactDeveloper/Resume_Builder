@@ -27,6 +27,7 @@ const Step1 = () => {
     state: "",
     country: "",
   });
+  console.log(formData);
 
   const inputContentHandler = () => {
     try {
@@ -223,16 +224,14 @@ const Step1 = () => {
                       city: e.target.value,
                     }));
                   }}
-                  endIcon={
-                    formErrors.city !== "" ? Icon.ErrorInput_Logo : ""
-                  }
+                  endIcon={formErrors.city !== "" ? Icon.ErrorInput_Logo : ""}
                 />
               </div>
               <div className="Contact_Details_Item Common_Contact_Details_Item">
                 <Input
                   marginTop={false}
                   error={formErrors.state}
-                  LabelText={"Email"}
+                  LabelText={"State"}
                   Type={"email"}
                   Name={"Email"}
                   placeholderText={"Enter your state"}
@@ -243,9 +242,7 @@ const Step1 = () => {
                       state: e.target.value,
                     }));
                   }}
-                  endIcon={
-                    formErrors.state !== "" ? Icon.ErrorInput_Logo : ""
-                  }
+                  endIcon={formErrors.state !== "" ? Icon.ErrorInput_Logo : ""}
                 />
               </div>
             </div>

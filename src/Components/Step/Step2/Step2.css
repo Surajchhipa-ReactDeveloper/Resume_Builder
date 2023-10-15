@@ -10,6 +10,9 @@
 .Job_Details_Item {
   width: 100%;
 }
+.Skill_Container {
+  width: 47% !important;
+}
 .Add_Skill_Button {
   display: flex;
   align-items: center;
@@ -40,9 +43,13 @@
 .Step_Input_Container {
   display: flex;
   /* flex-direction: column; */
+  width: 100%;
 }
 .Step_Skill_Input_Container {
-  gap: 4rem;
+  /* gap: 4rem; */
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 .skill_Heading {
   font-size: 2.5rem;
@@ -57,5 +64,18 @@
 @media only screen and (max-width: 1200px) {
   .Step_Skill_Input_Container {
     gap: 0rem;
+  }
+  .Skill_Container {
+    width: 100% !important;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .Skill_Container {
+    width: 47% !important;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .Skill_Container {
+    width: 100% !important;
   }
 }

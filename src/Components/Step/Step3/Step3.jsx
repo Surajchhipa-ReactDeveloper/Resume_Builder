@@ -13,6 +13,7 @@ const Step3 = () => {
     linkedIn: "",
     behance: "",
     portfolio: "",
+    educations: [{ course: "", institute: "", startYear: "", endYear: "" }],
   });
 
   // Function to create a new education container with initial state
@@ -46,33 +47,21 @@ const Step3 = () => {
   const [educations, setEducations] = useState([createEducationContainer()]);
   // ******************* NORMAL STATE END ************
 
-  // *************************
-  const currentYear = new Date().getFullYear();
-  const [selectedYear, setSelectedYear] = useState(currentYear);
-  // const StartYear = selectedYear - 100;
+  // const endOnClick = (event) => {
+  //   setHide(!hide);
+  //   const inputValue = event.target.value;
+  //   const newYear = parseInt(inputValue, 10) || 0;
+  //   setSelectedYear(newYear);
+  //   console.log(selectedYear);
+  //   console.log(currentYear);
+  //   // console.log(years);
+  //   // console.log(Now);
+  //   console.log("Selected Year (Start Year):", newYear);
+  // };
 
-  const [hello, setHello] = useState(currentYear);
-  const years = Array.from(
-    { length: hello - 100 },
-    (_, index) => selectedYear + index
-  );
-  // *************************
-
-  const endOnClick = (event) => {
-    setHide(!hide);
-    const inputValue = event.target.value;
-    const newYear = parseInt(inputValue, 10) || 0;
-    setSelectedYear(newYear);
-    console.log(selectedYear);
-    console.log(currentYear);
-    console.log(years);
-    console.log(hello);
-    console.log("Selected Year (Start Year):", newYear);
-  };
-
-  const endOnClick2 = () => {
-    setHide2(!hide2);
-  };
+  // const endOnClick2 = () => {
+  //   setHide2(!hide2);
+  // };
   // Function to remove an education container by index
   const removeEducationContainer = (indexToRemove) => {
     if (educations.length > 1) {
@@ -100,6 +89,40 @@ const Step3 = () => {
     );
   };
 
+  // ************************ for Year Start *****************
+  const currentYear = new Date().getFullYear();
+  const startYearOption = 1900;
+  const years = Array.from(
+    { length: currentYear - startYearOption + 1 },
+    (_, index) => startYearOption + index
+  );
+  const [optionYear, setOptionYear] = useState(years);
+  const [selectedYear, setSelectedYear] = useState(currentYear);
+
+  const endOnClick = (event) => {
+    setHide(!hide);
+    const inputValue = event.target.value;
+    const newYear = parseInt(inputValue, 10) || 0;
+    setSelectedYear(newYear);
+  };
+
+  const endOnClick2 = () => {
+    setHide2(!hide2);
+  };
+
+  const handleSelectYear = (selectedYear) => {
+    setFormData3({ ...formData3, startYear: selectedYear });
+    console.log("Selected Year for Start Year: ", selectedYear);
+    setHide(!hide);
+  };
+  const handleSelectYear2 = (selectedYearEnd) => {
+    setFormData3({ ...formData3, endYear: selectedYearEnd });
+    console.log("Selected Year for End Year: ", selectedYearEnd);
+    setHide2(!hide2);
+  };
+
+  // ************************ for Year End ********************
+  console.log(formData3);
   const educationComponents = educations.map((educationEntry, index) => (
     <div key={index} className="Step_Secondary_Input_Container">
       <div className="Common_Counter_Counter">
@@ -126,7 +149,7 @@ const Step3 = () => {
           onChange={(e) => {
             handleEducationChange(index, "course", e.target.value);
           }}
-          endIcon={formErrors3.course !== "" ? Icon.ErrorInput_Logo : ""} 
+          endIcon={formErrors3.course !== "" ? Icon.ErrorInput_Logo : ""}
         />
       </div>
       <div className=" Common_SIngle_Class">
@@ -149,7 +172,7 @@ const Step3 = () => {
       {/* ************* */}
 
       <div className="Step_Input_Container Common_Step_Input_Container">
-        <div className="Contact_Details_Item Common_Contact_Details_Item">
+        <div className="Contact_Details_Item Common_Contact_Details_Item Date_Container">
           <Input
             marginTop={true}
             error={formErrors3.startYear}
@@ -170,8 +193,29 @@ const Step3 = () => {
             }
             endOnClick={endOnClick}
           />
+          <div
+            className={`Select_Container ${
+              hide !== false ? "Select_Container_TRUE" : ""
+            }`}
+          >
+            {hide &&
+              optionYear.map((year, index) => (
+                <div
+                  key={index}
+                  value={year == formData3.startYear}
+                  className="Options_Container_Main"
+                >
+                  <div
+                    className="Option_Container_Option"
+                    onClick={() => handleSelectYear(year)}
+                  >
+                    {year}
+                  </div>
+                </div>
+              ))}
+          </div>
         </div>
-        <div className="Contact_Details_Item Common_Contact_Details_Item">
+        <div className="Contact_Details_Item Common_Contact_Details_Item Date_Container">
           <Input
             marginTop={true}
             error={formErrors3.endYear}
@@ -191,9 +235,28 @@ const Step3 = () => {
                 : Icon.ErrorInput_Logo
             }
             endOnClick={endOnClick2}
-            // min={1900}
-            // max={new Date().getFullYear() + 10}
           />
+          <div
+            className={`Select_Container ${
+              hide2 !== false ? "Select_Container_TRUE" : ""
+            }`}
+          >
+            {hide2 &&
+              optionYear.map((year, index) => (
+                <div
+                  key={index}
+                  value={year == formData3.startYear}
+                  className="Options_Container_Main"
+                >
+                  <div
+                    className="Option_Container_Option"
+                    onClick={() => handleSelectYear2(year)}
+                  >
+                    {year}
+                  </div>
+                </div>
+              ))}
+          </div>
         </div>
       </div>
     </div>

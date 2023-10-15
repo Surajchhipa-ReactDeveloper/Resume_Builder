@@ -37,6 +37,9 @@ const TextArea = ({
     if (wordCount <= maxWords) {
       setText(newText);
     }
+    if (onChange) {
+      onChange(e); // Call the parent component's onChange function
+    }
   };
 
   return (
@@ -70,7 +73,7 @@ const TextArea = ({
             placeholder={placeholderText}
             required
             onKeyUp={adjustTextareaHeight}
-            // value={text} 
+            value={value}
             onChange={handleTextChange} // Handlek text changes
           ></textarea>
           <p className={`ErrorMassage ${!error ? "ActiveErrorMassage" : ""}`}>

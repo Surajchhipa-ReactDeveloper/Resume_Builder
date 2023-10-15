@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Builder.css";
 import { Icon } from "../../Constant/IconPath";
 import NextButton from "../Common/NextButton/NextButton";
@@ -8,6 +8,7 @@ import Step1 from "../Step/Step1/Step1";
 import Step2 from "../Step/Step2/Step2";
 import Step3 from "../Step/Step3/Step3";
 import Step4 from "../Step/Step4/Step4";
+import YearSelector from "../Years/Years";
 
 const Builder = () => {
   const StepHeading = [
@@ -17,7 +18,16 @@ const Builder = () => {
     "Experiences",
   ];
 
-  const [currentStep, setCurrentStep] = useState(1);
+
+  // Get the current step from localStorage or default to 1
+  const [currentStep, setCurrentStep] = useState(
+    parseInt(localStorage.getItem("currentStep")) || 1
+  );
+
+  // Update localStorage when currentStep changes
+  useEffect(() => {
+    localStorage.setItem("currentStep", currentStep.toString());
+  }, [currentStep]);
 
   const handleNextClick = () => {
     if (currentStep < StepHeading.length) {
