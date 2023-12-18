@@ -1,0 +1,45 @@
+.Step5_Main_Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  gap: 6rem;
+}
+.Resume_Img_Container {
+  height: 50vh;
+}
+.Resume_Logo_Output {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: blur(2px);
+}
+.Resume_Mid_Text_Container {
+  text-align: center;
+}
+.Resume_First_text {
+  font-size: 3rem;
+  line-height: 3rem;
+  font-family: "Poppins-Medium";
+}
+.Resume_Second_text {
+  font-size: 7.5rem;
+  line-height: 7.5rem;
+  font-family: "Poppins-Medium";
+}
+.Resume_Second_text_Blue {
+  font-size: 7.5rem;
+  line-height: 7.5rem;
+  font-family: "Poppins-Medium";
+}
+.Resume_Button_Container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+/* .None {
+  display: block;
+} */

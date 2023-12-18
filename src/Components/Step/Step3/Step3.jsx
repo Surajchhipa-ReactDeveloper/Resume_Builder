@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../Step1/Step1.css";
 import "./Step3.css";
 import { useState } from "react";
 import { Icon } from "../../../Constant/IconPath";
 import Input from "../../Common/Input/Input";
-const Step3 = () => {
+import DropDown from "../../Common/DropDown/Drop";
+
+const Step3 = ({ BuilderDataHandler3, setFormDataStep3Education }) => {
   // ************* NORMAL INPUT STATE START**************
 
   const [formData3, setFormData3] = useState({
@@ -13,7 +15,13 @@ const Step3 = () => {
     linkedIn: "",
     behance: "",
     portfolio: "",
-    educations: [{ course: "", institute: "", startYear: "", endYear: "" }],
+    startYear: "",
+    endYear: "",
+    // educations: [{ course: "", institute: "", startYear: "", endYear: "" }],
+    // course: "",
+    // institute: "",
+    // startYear: "",
+    // endYear: "",
   });
 
   // Function to create a new education container with initial state
@@ -44,24 +52,9 @@ const Step3 = () => {
 
   const [hide, setHide] = useState(false);
   const [hide2, setHide2] = useState(false);
-  const [educations, setEducations] = useState([createEducationContainer()]);
+  const [educations, setEducations] = useState([createEducationContainer]);
   // ******************* NORMAL STATE END ************
 
-  // const endOnClick = (event) => {
-  //   setHide(!hide);
-  //   const inputValue = event.target.value;
-  //   const newYear = parseInt(inputValue, 10) || 0;
-  //   setSelectedYear(newYear);
-  //   console.log(selectedYear);
-  //   console.log(currentYear);
-  //   // console.log(years);
-  //   // console.log(Now);
-  //   console.log("Selected Year (Start Year):", newYear);
-  // };
-
-  // const endOnClick2 = () => {
-  //   setHide2(!hide2);
-  // };
   // Function to remove an education container by index
   const removeEducationContainer = (indexToRemove) => {
     if (educations.length > 1) {
@@ -99,30 +92,17 @@ const Step3 = () => {
   const [optionYear, setOptionYear] = useState(years);
   const [selectedYear, setSelectedYear] = useState(currentYear);
 
-  const endOnClick = (event) => {
-    setHide(!hide);
-    const inputValue = event.target.value;
-    const newYear = parseInt(inputValue, 10) || 0;
-    setSelectedYear(newYear);
-  };
-
-  const endOnClick2 = () => {
-    setHide2(!hide2);
-  };
-
   const handleSelectYear = (selectedYear) => {
     setFormData3({ ...formData3, startYear: selectedYear });
-    console.log("Selected Year for Start Year: ", selectedYear);
     setHide(!hide);
   };
   const handleSelectYear2 = (selectedYearEnd) => {
     setFormData3({ ...formData3, endYear: selectedYearEnd });
-    console.log("Selected Year for End Year: ", selectedYearEnd);
     setHide2(!hide2);
   };
 
   // ************************ for Year End ********************
-  console.log(formData3);
+  // console.log(formData3);
   const educationComponents = educations.map((educationEntry, index) => (
     <div key={index} className="Step_Secondary_Input_Container">
       <div className="Common_Counter_Counter">
@@ -173,94 +153,21 @@ const Step3 = () => {
 
       <div className="Step_Input_Container Common_Step_Input_Container">
         <div className="Contact_Details_Item Common_Contact_Details_Item Date_Container">
-          <Input
-            marginTop={true}
-            error={formErrors3.startYear}
-            LabelText={"Starting Year"}
-            Type={"number"}
-            Name={"EYear"}
-            placeholderText={"Select"}
-            value={formData3.startYear}
-            onChange={(e) => {
-              handleEducationChange(index, "Starting Year", e.target.value);
-            }}
-            endIcon={
-              formErrors3.startYear == ""
-                ? hide
-                  ? Icon.UpArrow
-                  : Icon.DownArrow
-                : Icon.ErrorInput_Logo
-            }
-            endOnClick={endOnClick}
-          />
-          <div
-            className={`Select_Container ${
-              hide !== false ? "Select_Container_TRUE" : ""
-            }`}
-          >
-            {hide &&
-              optionYear.map((year, index) => (
-                <div
-                  key={index}
-                  value={year == formData3.startYear}
-                  className="Options_Container_Main"
-                >
-                  <div
-                    className="Option_Container_Option"
-                    onClick={() => handleSelectYear(year)}
-                  >
-                    {year}
-                  </div>
-                </div>
-              ))}
-          </div>
+          <DropDown />
         </div>
         <div className="Contact_Details_Item Common_Contact_Details_Item Date_Container">
-          <Input
-            marginTop={true}
-            error={formErrors3.endYear}
-            LabelText={"Ending Year"}
-            Type={"number"}
-            Name={"EYear"}
-            placeholderText={"Select"}
-            value={formData3.endYear}
-            onChange={(e) => {
-              handleEducationChange(index, "Ending Year", e.target.value);
-            }}
-            endIcon={
-              formErrors3.endYear == ""
-                ? hide2
-                  ? Icon.UpArrow
-                  : Icon.DownArrow
-                : Icon.ErrorInput_Logo
-            }
-            endOnClick={endOnClick2}
-          />
-          <div
-            className={`Select_Container ${
-              hide2 !== false ? "Select_Container_TRUE" : ""
-            }`}
-          >
-            {hide2 &&
-              optionYear.map((year, index) => (
-                <div
-                  key={index}
-                  value={year == formData3.startYear}
-                  className="Options_Container_Main"
-                >
-                  <div
-                    className="Option_Container_Option"
-                    onClick={() => handleSelectYear2(year)}
-                  >
-                    {year}
-                  </div>
-                </div>
-              ))}
-          </div>
+          <DropDown />
         </div>
       </div>
     </div>
   ));
+
+  useEffect(() => {
+    BuilderDataHandler3(formData3);
+    setFormDataStep3Education(educations);
+  }, [formData3, educations]);
+
+  // console.log(educations);
 
   return (
     <>

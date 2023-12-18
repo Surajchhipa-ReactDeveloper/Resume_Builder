@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Step1.css";
 import Input from "../../Common/Input/Input";
 import { Icon } from "../../../Constant/IconPath";
+import { useDispatch, useSelector } from "react-redux";
+import Builder from "../../Builder/Builder";
+import { updateFormData } from "../../../Redux/Slice/Form1Slice";
+// import Form1Slice, { FirstStep } from "../../../Redux/Slice/Form1Slice";
 
-const Step1 = () => {
+const Step1 = ({ onInputContentHandler, BuilderDataHandler }) => {
   // ***************** NORMAL STATE ***********
 
   const [formData, setFormData] = useState({
@@ -27,7 +31,7 @@ const Step1 = () => {
     state: "",
     country: "",
   });
-  console.log(formData);
+  // console.log("formData >>> ", formData);
 
   const inputContentHandler = () => {
     try {
@@ -110,13 +114,16 @@ const Step1 = () => {
         setFormErrors((prevErrors) => ({ ...prevErrors, country: "" }));
       }
     } catch (error) {
-      console.log(error, "Find Error Chack Code");
+      // console.log(error, "Find Error Chack Code");
     }
   };
+  useEffect(() => {
+    BuilderDataHandler(formData);
+  }, [formData]);
 
   return (
     <>
-      <div className="Step1_Container">
+      <div className="Step1_Container Common_Step_Main_Container_For_All">
         <div className="Step1_Left_Container">
           <div className="Basis_Details common_Details_For_All">
             <h2 className="Contact_Details_heading Common_Step_Container_Input_Heading">

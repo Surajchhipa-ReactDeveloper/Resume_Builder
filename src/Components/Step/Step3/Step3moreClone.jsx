@@ -5,9 +5,8 @@ import { useState } from "react";
 import { Icon } from "../../../Constant/IconPath";
 import Input from "../../Common/Input/Input";
 import DropDown from "../../Common/DropDown/Drop";
-import EducationMore from "../../Common/EducationMore/EducationMore";
 
-const Step3Clone = ({ BuilderDataHandler3, setFormDataStep3Education }) => {
+const Step3 = ({ BuilderDataHandler3, setFormDataStep3Education }) => {
   // ************* NORMAL INPUT STATE START**************
 
   const [formData3, setFormData3] = useState({
@@ -16,13 +15,14 @@ const Step3Clone = ({ BuilderDataHandler3, setFormDataStep3Education }) => {
     linkedIn: "",
     behance: "",
     portfolio: "",
+    startYear: "",
+    endYear: "",
+    // educations: [{ course: "", institute: "", startYear: "", endYear: "" }],
+    // course: "",
+    // institute: "",
+    // startYear: "",
+    // endYear: "",
   });
-
-  const [educationMoreData, setEducationMoreData] = useState([
-    // { id: 1, course: "", institute: "", startYear: "", endYear: "" },
-    // { id: 2, course: "", institute: "", startYear: "", endYear: "" },
-    // { id: 3, course: "", institute: "", startYear: "", endYear: "" },
-  ]);
 
   // Function to create a new education container with initial state
 
@@ -33,22 +33,30 @@ const Step3Clone = ({ BuilderDataHandler3, setFormDataStep3Education }) => {
     course: "",
     institute: "",
     portfolio: "",
+    behance: "",
     linkedIn: "",
     instagram: "",
     facebook: "",
-    behance: "",
+    startYear: "",
+    endYear: "",
   });
 
   // ************* ERROR STATE END**************
-
+  const createEducationContainer = () => ({
+    course: "",
+    institute: "",
+    startYear: "",
+    endYear: "",
+  });
   // ******************* NORMAL STATE START ************
 
   const [hide, setHide] = useState(false);
   const [hide2, setHide2] = useState(false);
-  const [educations, setEducations] = useState([1]);
-  const [ArrayEducation, setArrayEducation] = useState({ educations });
-
+  const [educations, setEducations] = useState([createEducationContainer]);
   // ******************* NORMAL STATE END ************
+
+  console.log(educations);
+  console.log(formData3);
 
   // Function to remove an education container by index
   const removeEducationContainer = (indexToRemove) => {
@@ -58,7 +66,6 @@ const Step3Clone = ({ BuilderDataHandler3, setFormDataStep3Education }) => {
       );
     }
   };
-  // console.log();
 
   const MoreAddEducation = () => {
     if (educations.length < 3) {
@@ -68,23 +75,102 @@ const Step3Clone = ({ BuilderDataHandler3, setFormDataStep3Education }) => {
       ]);
     }
   };
-  // const handleExperienceChange = (index, updatedEducation) => {
-  //   const updatedEdu = [...educations];
-  //   updatedEdu[index] = updatedEducation;
-  //   setEducations(updatedEdu);
-  // };
-  const handleExperienceChange = (index, updatedEducation) => {
-    const updatedEdu = [...educationMoreData]; // Ensure educationMoreData is an array
-    updatedEdu[index] = updatedEducation;
-    setEducationMoreData(updatedEdu);
+
+  // Function to handle changes in an education container
+  const handleEducationChange = (index, field, value) => {
+    setEducations((prevEducations) =>
+      prevEducations.map((education, i) =>
+        i === index ? { ...education, [field]: value } : education
+      )
+    );
   };
+
+  // ************************ for Year Start *****************
+  const currentYear = new Date().getFullYear();
+  const startYearOption = 1900;
+  const years = Array.from(
+    { length: currentYear - startYearOption + 1 },
+    (_, index) => startYearOption + index
+  );
+  const [optionYear, setOptionYear] = useState(years);
+  const [selectedYear, setSelectedYear] = useState(currentYear);
+
+  const [hideStartYearOptions, setHideStartYearOptions] = useState(true);
+  const [hideEndYearOptions, setHideEndYearOptions] = useState(true);
+
+  const handleStartYearSelection = (year) => {
+    setFormData3({ ...formData3, startYear: year });
+    setHideStartYearOptions(true);
+  };
+
+  const handleEndYearSelection = (year) => {
+    setFormData3({ ...formData3, endYear: year });
+    setHideEndYearOptions(true);
+  };
+
+  // ************************ for Year End ********************
+  // console.log(formData3);
+  const educationComponents = educations.map((educationEntry, index) => (
+    <div key={index} className="Step_Secondary_Input_Container">
+      <div className="Common_Counter_Counter">
+        <h6 className="Degree_Container">Degree No.{index + 1}</h6>
+        {index > 0 && index <= 3 && (
+          <div
+            className="Cross_Icon_Container"
+            onClick={() => removeEducationContainer(index)}
+          >
+            <img src={Icon.CrossIcon} alt="" className="CrossIcon" />
+          </div>
+        )}
+      </div>
+
+      <div className=" Common_SIngle_Class">
+        <Input
+          marginTop={false}
+          // error={formErrors3.course}
+          LabelText={"Course / Degree Name"}
+          Type={"text"}
+          Name={"Title"}
+          placeholderText={"Like BBA, MBA, BCA, etc."}
+          onChange={(e) => {
+          }}
+          // endIcon={formErrors3.course !== "" ? Icon.ErrorInput_Logo : ""}
+        />
+      </div>
+      <div className=" Common_SIngle_Class">
+        <Input
+          marginTop={false}
+          error={formErrors3.institute}
+          LabelText={"Institute / College Name"}
+          Type={"text"}
+          Name={"Title"}
+          placeholderText={"Like Oxford University, Harvard University, etc."}
+          // value={formData3.institute}
+          endIcon={formErrors3.institute !== "" ? Icon.ErrorInput_Logo : ""}
+        />
+      </div>
+      {/* ************* */}
+
+      {/* ************* */}
+
+      <div className="Step_Input_Container Common_Step_Input_Container">
+        <div className="Contact_Details_Item Common_Contact_Details_Item Date_Container">
+          <DropDown />
+        </div>
+        <div className="Contact_Details_Item Common_Contact_Details_Item Date_Container">
+          <DropDown />
+        </div>
+      </div>
+    </div>
+  ));
 
   useEffect(() => {
     BuilderDataHandler3(formData3);
-    setFormDataStep3Education(educationMoreData);
-  }, [formData3, educationMoreData]);
+    setFormDataStep3Education(educations);
+  }, [formData3, educations]);
 
-  console.log(educationMoreData);
+  // console.log(educations);
+
   return (
     <>
       <div className="Step3_Container Step_Main_Common_Container">
@@ -94,17 +180,15 @@ const Step3Clone = ({ BuilderDataHandler3, setFormDataStep3Education }) => {
               5. Education Details
             </h2>
             <div className="Step_Secondary_Input_Container">
-              {educations.map((_, index) => (
-                <EducationMore
-                  key={index}
-                  index={index}
-                  removeEducationContainer={removeEducationContainer}
-                  id={index}
-                  education={educationMoreData}
-                  setEducation={setEducationMoreData}
-                  onEducationChange={handleExperienceChange}
-                />
-              ))}
+              {educationComponents.length > 0 ? (
+                <div className="Step_Skill_Input_Container Step_Input_Container Common_Step_Input_Container">
+                  <div className="Skill_Details_Item ">
+                    {educationComponents}
+                  </div>
+                </div>
+              ) : (
+                <p>No education added yet.</p>
+              )}
             </div>
             {educations.length < 3 && (
               <div className="Add_Skill_Button" onClick={MoreAddEducation}>
@@ -190,11 +274,11 @@ const Step3Clone = ({ BuilderDataHandler3, setFormDataStep3Education }) => {
                   Type={"text"}
                   Name={"Behance"}
                   placeholderText={"Enter your Username"}
-                  value={formData3.behance}
+                  value={formData3.portfolio}
                   onChange={(e) => {
                     setFormData3((prevData) => ({
                       ...prevData,
-                      behance: e.target.value,
+                      portfolio: e.target.value,
                     }));
                   }}
                   // endIcon={
@@ -228,4 +312,4 @@ const Step3Clone = ({ BuilderDataHandler3, setFormDataStep3Education }) => {
     </>
   );
 };
-export default Step3Clone;
+export default Step3;

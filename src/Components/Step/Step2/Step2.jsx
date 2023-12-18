@@ -5,8 +5,12 @@ import Input from "../../Common/Input/Input";
 import TextArea from "../../Common/Input/TextArea";
 import Input2 from "../../Common/Input/Input2";
 import { Icon } from "../../../Constant/IconPath";
+import { useSelector } from "react-redux";
+import { Step2Data } from "../../../Redux/Slice/Form2Slice";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 
-const Step2 = () => {
+const Step2 = ({ BuilderDataHandler2 }) => {
   const [input2Count, setInput2Count] = useState(2); // Initial count
 
   const [formData2, setFormData2] = useState({
@@ -17,11 +21,11 @@ const Step2 = () => {
 
   const [formErrors2, setFormErrors2] = useState({
     title: "",
-    skill: "",
+    skills: "",
     description: "",
   });
-  console.log(formData2.description);
-  console.log(formData2);
+  // console.log(formData2.description);
+  // console.log(formData2);
   // const [title, setTitle] = useState("");
   // const [skill, setSkill] = useState("");
   // const [description, setDescription] = useState("");
@@ -70,9 +74,9 @@ const Step2 = () => {
       description: value,
     }));
   };
-
-  console.log("formData2.description:", formData2.description);
-
+  useEffect(() => {
+    BuilderDataHandler2(formData2);
+  }, [formData2]);
   return (
     <>
       <div className="Step2_Container Step_Main_Common_Container">

@@ -1,0 +1,245 @@
+.output_Container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.Resume_Output_Main_Container {
+  display: flex;
+  flex-direction: column;
+  padding: 4rem;
+  justify-content: baseline;
+  width: 60%;
+  gap: 5rem;
+  /* background-color: #35322f3f; */
+}
+.Output_Top_Main_Container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* style={styles.User_Details} */
+}
+.Resume_User_Name {
+  font-size: 8.5rem;
+  line-height: 7.5rem;
+  padding-bottom: 2rem;
+  font-family: "Questrial-Regular";
+}
+.Resume_User_Work {
+  font-family: "Questrial-Regular";
+  color: #707070;
+  font-size: 3.5rem;
+  line-height: 2.5rem;
+}
+.Output_Top_Right_Container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+.Output_Top_Right_Container_Call,
+.Output_Top_Right_Container_Mail,
+.Output_Top_Right_Container_Adders {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.8rem;
+}
+.User_Details {
+  font-size: 2.5rem;
+  line-height: 3.4rem;
+  font-family: "Questrial-Regular";
+}
+.Logo_Common_Container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: rgba(128, 128, 128, 0.166);
+  border-radius: 50%;
+}
+.Resume_Logo {
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+  object-position: center;
+}
+
+.Output_Center_Main_Container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.Output_Center_Top_Container_Profile {
+  font-size: 3rem;
+  line-height: 2rem;
+  font-family: "Poppins-Medium";
+}
+.Output_Center_Bottom_Container_About {
+  font-size: 2.5rem;
+  line-height: 3.5rem;
+  font-family: "Questrial-Regular";
+  color: #000000;
+  opacity: 51%;
+}
+.Output_Bottom_Main_Container {
+  display: flex;
+  width: 100%;
+  /* height: 80vh; */
+}
+.Output_Bottom_Left_Container {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.Output_Bottom_Right_Container {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.Education_Type_Container {
+  gap: 2rem !important;
+}
+.Education_Outer_Container {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+.Education_Counter_Container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+.Education_Start_End_Year,
+.Education_From_Palace {
+  font-size: 2.4rem;
+  line-height: 2.5rem;
+  color: grey;
+  font-family: "Poppins-Regular";
+}
+.Education_Name {
+  font-size: 2.4rem;
+  line-height: 2.5rem;
+  font-family: "Poppins-Medium";
+}
+
+.Type_Bottom_Left_Container_Heading {
+  margin-bottom: 2.5rem;
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  font-family: "Poppins-Medium";
+}
+
+.Skill_Counter_Container,
+.Education_Type_Container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  /* padding-left: 4rem; */
+}
+.Output_Bottom_Left_Container_Skill {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.Skill_Counter {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.Blank_Circle_Box {
+  width: 1.2rem;
+  height: 1.2rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: gray;
+  border-radius: 50%;
+  opacity: 10%;
+}
+.Skills_Type {
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  font-family: "Poppins-Regular";
+}
+.Follow_Type {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.Follow_Counter {
+  gap: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.Follow_Logo_Container {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #efefef5c;
+  border-radius: 50%;
+}
+.Media_Logo {
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: contain;
+  object-position: center;
+}
+.Output_Bottom_Center_Container {
+  margin: 0rem 4rem;
+  border-radius: 50%;
+  border: 1.5px solid gray;
+  opacity: 10%;
+}
+.Output_Center_Blank_Line_Main_Container {
+  margin: 1rem 0rem;
+  border: 1.5px solid gray;
+  border-radius: 50%;
+  opacity: 10%;
+}
+.Work_Post_And_Date {
+  display: flex;
+  justify-content: space-between;
+}
+.Work_Post {
+  font-size: 2rem;
+  line-height: 2rem;
+  font-family: "Poppins-Regular";
+}
+.Experience_Type_Container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.Company_Main_Details {
+  padding-left: 2rem;
+}
+.Job_Company_Name {
+  margin-bottom: 0.5rem;
+  margin-top: 1.5rem;
+  font-size: 2rem;
+  line-height: 1rem;
+  font-family: "Poppins-Regular";
+}
+.Job_Company_Name_Location {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  line-height: 3.5rem;
+  font-family: "Questrial-Regular";
+  color: #000000;
+  opacity: 51%;
+}
+.About_Job_Company,
+.Working_Year {
+  font-size: 2rem;
+  line-height: 2.5rem;
+  color: #000000;
+  opacity: 51%;
+  font-family: "Questrial-Regular";
+}
