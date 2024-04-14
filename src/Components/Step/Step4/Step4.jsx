@@ -3,8 +3,9 @@ import "../Step1/Step1.css";
 import "./Step4.css";
 import { Icon } from "../../../Constant/IconPath";
 import ExperienceMore from "../../Common/ExperienceMore/ExperienceMore";
+import { useEffect } from "react";
 
-const Step4 = () => {
+const Step4 = ({ BuilderDataHandler4, setFormDataStep4Experience }) => {
   const [experienceData, setExperienceData] = useState([
     {
       id: 1,
@@ -82,6 +83,10 @@ const Step4 = () => {
       );
     }
   };
+  useEffect(() => {
+    setFormDataStep4Experience(experienceData);
+  }, [experienceData]);
+
   console.log(experienceData);
   return (
     <>

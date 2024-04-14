@@ -3,13 +3,14 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  border-radius: 4rem;
 }
 .Resume_Output_Main_Container {
   display: flex;
   flex-direction: column;
   padding: 4rem;
   justify-content: baseline;
-  width: 60%;
+  width: 100%;
   gap: 5rem;
   /* background-color: #35322f3f; */
 }

@@ -277,19 +277,19 @@ const Step5 = forwardRef((props, ref) => {
     },
   });
 
-  const generatePDF = () => {
-    if (pdfRef.current) {
-      pdfRef.current.updateContainer();
-      // Trigger a download of the PDF
-      pdfRef.current.children[0].toBlob().then((blob) => {
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "result_clone.pdf";
-        a.click();
-      });
-    }
-  };
+  // const generatePDF = () => {
+  //   if (pdfRef.current) {
+  //     pdfRef.current.updateContainer();
+  //     // Trigger a download of the PDF
+  //     pdfRef.current.children[0].toBlob().then((blob) => {
+  //       const url = URL.createObjectURL(blob);
+  //       const a = document.createElement("a");
+  //       a.href = url;
+  //       a.download = "result_clone.pdf";
+  //       a.click();
+  //     });
+  //   }
+  // };
   return (
     <>
       {showResult ? (
@@ -319,7 +319,7 @@ const Step5 = forwardRef((props, ref) => {
                 nextImg={true}
                 onClick={() => {
                   handleChangePage();
-                  generatePDF();
+                  // generatePDF();
                 }}
               />
             </div>

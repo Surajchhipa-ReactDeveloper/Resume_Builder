@@ -22,14 +22,14 @@ const Builder = () => {
   const dispatch2 = useDispatch();
   const dispatch3 = useDispatch();
   const dispatchEducation3 = useDispatch();
-  const dispatch4 = useDispatch();
-  const dispatchExperience = useDispatch();
+  // const dispatch4 = useDispatch();
 
   const [formDataStep1, setFormDataStep1] = useState({});
   const [formDataStep2, setFormDataStep2] = useState({});
   const [formDataStep3, setFormDataStep3] = useState({});
   const [formDataStep3Education, setFormDataStep3Education] = useState({});
-  const [formDataStep4, setFormDataStep4] = useState();
+  const [formDataStep4, setFormDataStep4] = useState({});
+  const [formDataStep4Experience, setFormDataStep4Experience] = useState({});
   const [call1, setCall1] = useState(false);
 
   console.log(formDataStep3Education);
@@ -49,6 +49,7 @@ const Builder = () => {
   };
   const BuilderDataHandler4 = (data) => {
     setFormDataStep4(data);
+    setFormDataStep4Experience(data);
   };
 
   const StepHeading = [
@@ -59,9 +60,10 @@ const Builder = () => {
   ];
 
   // Get the current step from localStorage or default to 1
-  const [currentStep, setCurrentStep] = useState(
-    parseInt(localStorage.getItem("currentStep"))
-  );
+  const [currentStep, setCurrentStep] = useState(1);
+  // const [currentStep, setCurrentStep] = useState(
+  //   parseInt(localStorage.getItem("currentStep"))
+  // );
 
   // Update localStorage when currentStep changes
   useEffect(() => {
@@ -152,7 +154,12 @@ const Builder = () => {
                   setFormDataStep3Education={setFormDataStep3Education}
                 />
               ) : null}
-              {currentStep === 4 ? <Step4 /> : null}
+              {currentStep === 4 ? (
+                <Step4
+                  BuilderDataHandler4={BuilderDataHandler4}
+                  setFormDataStep4Experience={setFormDataStep4Experience}
+                />
+              ) : null}
             </div>
             <div className="Builder_Bottom_Container ">
               <div className="Builder_Back_Button">
@@ -183,6 +190,9 @@ const Builder = () => {
                       dispatchEducation3(
                         Step3DataEducation(formDataStep3Education)
                       );
+                      // dispatch4(
+                      //   setFormDataStep4Experience(formDataStep4Experience)
+                      // );
                       if (currentStep === 4) {
                         handleFormCompletion();
                         handlePreviewClick();
@@ -197,6 +207,8 @@ const Builder = () => {
                         ? "Go To Step 4"
                         : currentStep === 4
                         ? "Preview"
+                        : currentStep === 5
+                        ? "Preview2"
                         : ""
                     }
                   />
